@@ -9,6 +9,7 @@ public class character_controller : MonoBehaviour
     [SerializeField] GameObject main_Camera;
     [SerializeField] GameObject character;
     [SerializeField] GameObject gameStateObject;
+    public bool isRunning;
     public Vector3 target;
     public float x_Factor = 0f;
     public float y_Factor = 0f;
@@ -25,8 +26,12 @@ public class character_controller : MonoBehaviour
         {
             char_Pos = target;
             Debug.Log("The character is close enough to the target to stop moving.");
+            isRunning = false;
         }
-
+        else
+        {
+            isRunning = true;
+        }
         // Code below moves the character towards the target position if it is not at the position already.
         if (char_Pos != target){
             // These factors dictate the direction the character will move.
