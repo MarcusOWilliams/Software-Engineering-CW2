@@ -10,6 +10,7 @@ public class character_controller : MonoBehaviour
     [SerializeField] GameObject character;
     [SerializeField] GameObject gameStateObject;
     public bool isRunning;
+    public bool isGameOver = false;
     public Vector3 target;
     public float x_Factor = 0f;
     public float y_Factor = 0f;
@@ -28,6 +29,7 @@ public class character_controller : MonoBehaviour
             Debug.Log("The character is close enough to the target to stop moving.");
             isRunning = false;
         }
+        //if the character is not at the target the bool for the animation script is true
         else
         {
             isRunning = true;
@@ -55,6 +57,7 @@ public class character_controller : MonoBehaviour
     {
         Debug.Log("triggered");
         gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
+        isGameOver = true;
     }
 
     // This function determines which direction the character should be moving in.

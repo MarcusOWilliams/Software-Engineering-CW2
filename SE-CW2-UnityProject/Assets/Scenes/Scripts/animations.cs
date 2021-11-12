@@ -19,6 +19,10 @@ public class animations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CC.isGameOver)
+        {
+            animator.SetBool("isDead", true);
+        }
         if (CC.isRunning)
         {
             animator.SetBool("isRunning", true);
@@ -27,5 +31,6 @@ public class animations : MonoBehaviour
         {
             animator.SetBool("isRunning", false);
         }
+        
     }
 }
