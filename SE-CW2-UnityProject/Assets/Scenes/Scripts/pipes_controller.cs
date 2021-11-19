@@ -5,6 +5,7 @@ using UnityEngine;
 public class pipes_controller : MonoBehaviour
 {
     // First I establish items needed in this script. Note: public and [SerializeField] allow the paramters to be seen and changed in the Unity Editor.
+    [SerializeField] GameObject pipe_System_Object;
     public bool isPipeSelected = false;
     public Queue<GameObject> selected_Pipe_Queue = new Queue<GameObject>();
     public GameObject selected_pipe;
@@ -19,12 +20,14 @@ public class pipes_controller : MonoBehaviour
             // Take that selected pipe game object from the queue and send it to onEnter().
             selected_pipe = selected_Pipe_Queue.Dequeue();
             isPipeSelected = true; // Make sure the script knows a pipe is selected.
+            onRotateInput(selected_pipe);
             onEnter(selected_pipe);
-
+            
         } 
         // Or if a pipe has been selected from before (i.e. no longer in the queue but not clicked off from).
         else if (isPipeSelected == true)
         {
+            onRotateInput(selected_pipe);
             onEnter(selected_pipe);
         }
 
@@ -64,7 +67,14 @@ public class pipes_controller : MonoBehaviour
         {
             Debug.Log("Return key was pressed.");
             // Add the movement required by the character to follow this pipe to the respective queue, via pipe_controller.cs
-            selected_pipe.GetComponent<pipe_controller>().addMovementToQueue();
+            //selected_pipe.GetComponent<pipe_controller>().addMovementToQueue();
+
+            // Add pipe to the pipe system
+            pipe_System_Object.GetComponent<pipe_System>().add_Pipe(selected_pipe);
+
+
+
+            /*
             // If this is the first piece to be added:
             if (pipe_coord_list.Count == 0)
             {
@@ -85,6 +95,21 @@ public class pipes_controller : MonoBehaviour
             pipe_coord_list = selected_pipe.GetComponent<pipe_controller>().addEndPointToList();
             // Change the tag name of the pipe piece so it can no longer be selected.
             selected_pipe.tag = "old_pipe";
+            */
+
+        }
+    }
+
+    void onRotateInput(GameObject selected_Pipe)
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow) && selected_pipe.tag == "pipe")
+        {
+            selected_pipe.GetComponent<pipe_Properties>().pipe_Rotate("right");
+
+        } else if (Input.GetKeyDown(KeyCode.LeftArrow) && selected_pipe.tag == "pipe")
+        {
+            pipe_Properties pipe_Properties = selected_pipe.GetComponent<pipe_Properties>();
+            pipe_Properties.pipe_Rotate("left");
         }
     }
 }

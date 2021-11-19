@@ -9,12 +9,18 @@ public class character_controller : MonoBehaviour
     [SerializeField] GameObject main_Camera;
     [SerializeField] GameObject character;
     [SerializeField] GameObject gameStateObject;
+    [SerializeField] GameObject starting_Checkpoint;
     public bool isRunning;
     public bool isGameOver = false;
     public Vector3 target;
     public float x_Factor = 0f;
     public float y_Factor = 0f;
     public Queue<Vector3> movement_Queue = new Queue< Vector3 > ();
+
+    private void Start()
+    {
+        target = starting_Checkpoint.transform.position;
+    }
 
 
     // Update is called once per frame
@@ -25,8 +31,9 @@ public class character_controller : MonoBehaviour
         // Code below fixes a bug where the character over/under shoots the target and gets stuck.
         if (Mathf.Abs(Mathf.Abs(char_Pos.x) - Mathf.Abs(target.x)) < 0.01f && Mathf.Abs(Mathf.Abs(char_Pos.y) - Mathf.Abs(target.y)) < 0.01f)
         {
+            character.transform.position = target;
             char_Pos = target;
-            Debug.Log("The character is close enough to the target to stop moving.");
+            //Debug.Log("The character is close enough to the target to stop moving.");
             isRunning = false;
         }
         //if the character is not at the target the bool for the animation script is true
@@ -40,14 +47,29 @@ public class character_controller : MonoBehaviour
             x_Factor = x_Factor_Set(x_Factor);
             y_Factor = y_Factor_Set(y_Factor);
             // This Vector3 value is how much to add to the x, y and z directions in this frame. Time.deltaTime is used to smooth the process for computers with lag.
-            Vector3 movement_Increment = new Vector3(x_Factor * character_speed * Time.deltaTime, y_Factor * character_speed * Time.deltaTime, 0f);
+            //Vector3 movement_Increment = new Vector3(x_Factor * character_speed * Time.deltaTime, y_Factor * character_speed * Time.deltaTime, 0f);
             // We then set the character to a new position this frame.
-            character.transform.position = char_Pos + movement_Increment;
-        // If the character is at the current target, but has more movement queued up from the next pipe, or current pipe with one or more bends in it.
+            //character.transform.position = char_Pos + movement_Increment;
+
+            //https://www.codegrepper.com/code-examples/csharp/unity+how+to+move+a+gameobject+towards+another+gameobject code below used heavily from here
+
+            // Calculate direction vector.
+            Vector3 direction = character.transform.position - target;
+
+            // Normalize resultant vector to unit Vector.
+            direction = -direction.normalized;
+
+            // Move in the direction of the direction vector every frame.
+            character.transform.position += direction * Time.deltaTime * character_speed;
+
+
+            // If the character is at the current target, but has more movement queued up from the next pipe, or current pipe with one or more bends in it.
         } else if (char_Pos == target && movement_Queue.Count != 0)
         {
             // Target is set by adding the movement vector from the queue to the current character position.
-            target = char_Pos + movement_Queue.Dequeue();
+            //target = char_Pos + movement_Queue.Dequeue();
+            target = movement_Queue.Dequeue();
+            Debug.Log("Dequeue " + target);
         }
 
     }

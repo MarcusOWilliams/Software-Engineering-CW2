@@ -20,9 +20,9 @@ public class pipe_controller : MonoBehaviour
     // This function adds the movement increment to the character movement's queue. It is called from pipes_controller.cs
     public void addMovementToQueue()
     {
-        character.GetComponent<character_controller>().movement_Queue.Enqueue(movement_Increment1);
-        character.GetComponent<character_controller>().movement_Queue.Enqueue(movement_Increment2);
-        character.GetComponent<character_controller>().movement_Queue.Enqueue(movement_Increment3);
+        //character.GetComponent<character_controller>().movement_Queue.Enqueue(movement_Increment1);
+        //character.GetComponent<character_controller>().movement_Queue.Enqueue(movement_Increment2);
+        //character.GetComponent<character_controller>().movement_Queue.Enqueue(movement_Increment3);
     }
 
     // This function finds the next starting position of a pipe after one has been added. It is called from pipes_controller.cs
