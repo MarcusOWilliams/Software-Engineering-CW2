@@ -2,31 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pipes_controller : MonoBehaviour
+public class pipes_Interface : MonoBehaviour
 {
     // First I establish items needed in this script. Note: public and [SerializeField] allow the paramters to be seen and changed in the Unity Editor.
+
+    // Obtain reference to the pipe system object
     [SerializeField] GameObject pipe_System_Object;
+
+    // True if an unattached pipe piece has been selected
     public bool isPipeSelected = false;
+
+    // Used to keep track of the selected pipe piece
     public Queue<GameObject> selected_Pipe_Queue = new Queue<GameObject>();
+
+    // A reference to the selected pipe piece
     public GameObject selected_pipe;
-    public List<Vector3> pipe_coord_list = new List<Vector3>();
+
 
     // Update is called once per frame
     void Update()
     {
-        // If a pipe has just been clicked
+        // If a pipe has just been clicked.
         if (selected_Pipe_Queue.Count != 0)
         {
-            // Take that selected pipe game object from the queue and send it to onEnter().
+            // Take that selected pipe game object from the queue. 
             selected_pipe = selected_Pipe_Queue.Dequeue();
-            isPipeSelected = true; // Make sure the script knows a pipe is selected.
+
+            // Make sure the script knows a pipe is selected.
+            isPipeSelected = true;
+
+            // Send selected pipe piece to onEnter() and onRotate.
             onRotateInput(selected_pipe);
             onEnter(selected_pipe);
             
         } 
-        // Or if a pipe has been selected from before (i.e. no longer in the queue but not clicked off from).
-        else if (isPipeSelected == true)
+        // Or if a pipe has been selected from before (i.e. no longer in the queue but not clicked off from), and not in pipe system.
+        else if (isPipeSelected == true && selected_pipe.tag == "pipe")
         {
+            // Send selected pipe piece to onEnter() and onRotate.
             onRotateInput(selected_pipe);
             onEnter(selected_pipe);
         }
@@ -36,15 +49,19 @@ public class pipes_controller : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Mouse is down");
+
             // Get the details about the object clicked on.
             RaycastHit hitInfo = new RaycastHit();
+
             // See if the object did actually hit something (hit = true or false).
             bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+
             // If the click was on an object, and that object had the tag "pipe":
             if (hit && hitInfo.transform.gameObject.tag == "pipe")
             {
                 // If that pipe was previously selected, de-select it, and vice versa.
                 isPipeSelected = !isPipeSelected;
+
                 // Queue the selected pipe up, so next frame this script has it ready to use.
                 selected_Pipe_Queue.Enqueue(hitInfo.transform.gameObject);
                 Debug.Log("Hit " + hitInfo.transform.gameObject.name);
@@ -66,50 +83,28 @@ public class pipes_controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && selected_pipe.tag == "pipe")
         {
             Debug.Log("Return key was pressed.");
-            // Add the movement required by the character to follow this pipe to the respective queue, via pipe_controller.cs
-            //selected_pipe.GetComponent<pipe_controller>().addMovementToQueue();
 
             // Add pipe to the pipe system
             pipe_System_Object.GetComponent<pipe_System>().add_Pipe(selected_pipe);
 
 
-
-            /*
-            // If this is the first piece to be added:
-            if (pipe_coord_list.Count == 0)
-            {
-                // Hard code the initial position of the first pipe piece.
-                Vector3 starting_Point = selected_pipe.GetComponent<pipe_controller>().starting_Point;
-                selected_pipe.transform.position = new Vector3(5.7f, -0.09f, 0.657f) + starting_Point;
-            }
-            // If previous pieces have been added:
-            else
-            {
-                Debug.Log(pipe_coord_list.Count);
-                // Get the starting point of this pipe piece.
-                Vector3 starting_Point = selected_pipe.GetComponent<pipe_controller>().starting_Point;
-                // Position the pipe to the end of the last pipe.
-                selected_pipe.transform.position = pipe_coord_list[pipe_coord_list.Count - 1] + starting_Point;
-            }
-            // Add the new starting position of the next pipe piece to the list via the pipe_controller.cs script.
-            pipe_coord_list = selected_pipe.GetComponent<pipe_controller>().addEndPointToList();
-            // Change the tag name of the pipe piece so it can no longer be selected.
-            selected_pipe.tag = "old_pipe";
-            */
-
         }
     }
 
+    // Check to see if pipe should be rotated given user input, and then get it to rotate itself via the pipe_Properties script.
     void onRotateInput(GameObject selected_Pipe)
     {
+        // If the right arrow button was pressed.
         if (Input.GetKeyDown(KeyCode.RightArrow) && selected_pipe.tag == "pipe")
         {
+            // Rotate the pipe clockwise.
             selected_pipe.GetComponent<pipe_Properties>().pipe_Rotate("right");
-
-        } else if (Input.GetKeyDown(KeyCode.LeftArrow) && selected_pipe.tag == "pipe")
+        }
+        // If the left arrow button was pressed.
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && selected_pipe.tag == "pipe")
         {
-            pipe_Properties pipe_Properties = selected_pipe.GetComponent<pipe_Properties>();
-            pipe_Properties.pipe_Rotate("left");
+            // Rotate the pipe anti-clockwise.
+            selected_pipe.GetComponent<pipe_Properties>().pipe_Rotate("left");
         }
     }
 }

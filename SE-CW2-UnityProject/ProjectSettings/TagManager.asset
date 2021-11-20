@@ -5,7 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - pipe
-  - old_pipe
+  - attached_pipe
   layers:
   - Default
   - TransparentFX

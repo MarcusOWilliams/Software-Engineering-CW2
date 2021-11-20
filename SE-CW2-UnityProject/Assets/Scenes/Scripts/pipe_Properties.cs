@@ -4,24 +4,35 @@ using UnityEngine;
 
 public class pipe_Properties : MonoBehaviour
 {
-    [SerializeField] Vector3 pipe_Rotation = new Vector3(0, 0, 0);
-    [SerializeField] string pipe_entry = "horizontal";
+
+    // Display the current rotation of the pipe piece in the unity editor
     [SerializeField] int current_Rotation = 0;
+
+    // The rotational centre is childed under the pipe_holder, and is used as a pivot point for the pipe holder to rotate around.
     [SerializeField] GameObject rotational_Centre;
+
+    // Theses strings show where the pipe entry and ending or pointing (used to determine if a pipe piece may be added to the pipe system).
     public string pipe_start = "horizontal_left";
     public string pipe_end = "horizontal_right";
-    [SerializeField] string zero_degree_pipe_start = "h";
-    [SerializeField] string ninety_degree_pipe_start = "h";
-    [SerializeField] string one_eighty_degree_pipe_start = "h";
-    [SerializeField] string two_seventy_degree_pipe_start = "h";
-    [SerializeField] string zero_degree_pipe_end = "h";
-    [SerializeField] string ninety_degree_pipe_end = "h";
-    [SerializeField] string one_eighty_degree_pipe_end = "h";
-    [SerializeField] string two_seventy_degree_pipe_end = "h";
+
+    // These strings show where the pipe entry is pointing when at one of the 4 rotations (0, 90, 180, and 270 deg)
+    [SerializeField] string zero_degree_pipe_start = "horizontal_left";
+    [SerializeField] string ninety_degree_pipe_start = "horizontal_left";
+    [SerializeField] string one_eighty_degree_pipe_start = "horizontal_left";
+    [SerializeField] string two_seventy_degree_pipe_start = "horizontal_left";
+
+    // These strings show where the pipe ending is pointing when at one of the 4 rotations (0, 90, 180, and 270 deg)
+    [SerializeField] string zero_degree_pipe_end = "horizontal_left";
+    [SerializeField] string ninety_degree_pipe_end = "horizontal_left";
+    [SerializeField] string one_eighty_degree_pipe_end = "horizontal_left";
+    [SerializeField] string two_seventy_degree_pipe_end = "horizontal_left";
+
+    // This list contains the game object checkpoints childed under the pipe holder object, which are used as character movement checkpoints
     public List<GameObject> checkpoint_List = new List<GameObject>();
 
     private void Update()
     {
+        // Update the strings which contain where the start and end of the pipe is pointing, based on the pipe's rotation.
         if (current_Rotation == 0)
         {
             pipe_start = zero_degree_pipe_start;
@@ -44,15 +55,17 @@ public class pipe_Properties : MonoBehaviour
         }
     }
 
-    //Call this function to rotate the pipe piece selected.
+    // Call this function to rotate the pipe piece selected.
     public void pipe_Rotate(string direction)
     {
 
-        // Find the next rotation value
+        // Find the new rotation angle and rotate the pipe holder to reflect this
         if (direction == "right")
         {
+            // Rotate the pipe holder clockwise
             gameObject.transform.RotateAround(rotational_Centre.transform.position, Vector3.forward, -90);
-            Debug.Log("right");
+
+            // Set the value for the current rotation of the pipe
             if (current_Rotation == 270)
             {
                 current_Rotation = 0;
@@ -61,9 +74,13 @@ public class pipe_Properties : MonoBehaviour
             {
                 current_Rotation = current_Rotation + 90;
             }
+
         } else if (direction == "left")
         {
+            // Rotate the pipe holder anti-clockwise
             gameObject.transform.RotateAround(rotational_Centre.transform.position, Vector3.forward, 90);
+
+            // Set the value for the current rotation of the pipe
             if (current_Rotation == 0)
             {
                 current_Rotation = 270;
@@ -74,9 +91,6 @@ public class pipe_Properties : MonoBehaviour
             }
 
         }
-
-
-        //gameObject.transform.eulerAngles = new Vector3(0, 0, current_Rotation);
 
     }
 }
