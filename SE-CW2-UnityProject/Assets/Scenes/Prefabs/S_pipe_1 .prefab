@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1232865127125707055}
   - component: {fileID: 1232865127125707054}
   - component: {fileID: 1232865127125707053}
-  - component: {fileID: 1232865127125707052}
   - component: {fileID: 1232865127125707043}
   - component: {fileID: 1232865127125707042}
   m_Layer: 0
@@ -104,25 +103,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: 1.59}
---- !u!114 &1232865127125707052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232865127125707041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee169f700bbf0a45813cca5efa918a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_Increment1: {x: 3, y: 0, z: 0}
-  movement_Increment2: {x: 0, y: 1, z: 0}
-  movement_Increment3: {x: 2, y: 0, z: 0}
-  end_Point: {x: 5, y: 1, z: 0}
-  starting_Point: {x: 1, y: 0, z: 0}
-  character: {fileID: 0}
-  pipes_Controller_Object: {fileID: 0}
 --- !u!136 &1232865127125707043
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -163,7 +143,6 @@ GameObject:
   - component: {fileID: 1232865127890526935}
   - component: {fileID: 1232865127890526934}
   - component: {fileID: 1232865127890526933}
-  - component: {fileID: 1232865127890526932}
   m_Layer: 0
   m_Name: S_pipe_parts
   m_TagString: pipe
@@ -248,25 +227,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1232865127890526932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232865127890529578}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee169f700bbf0a45813cca5efa918a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_Increment1: {x: 2, y: 0, z: 0}
-  movement_Increment2: {x: 0, y: 2, z: 0}
-  movement_Increment3: {x: 2, y: 0, z: 0}
-  end_Point: {x: 2, y: 0, z: 0}
-  starting_Point: {x: 0, y: 0, z: 0}
-  character: {fileID: 0}
-  pipes_Controller_Object: {fileID: 0}
 --- !u!1 &1232865128240068114
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +239,6 @@ GameObject:
   - component: {fileID: 1232865128240068127}
   - component: {fileID: 1232865128240068126}
   - component: {fileID: 1232865128240068125}
-  - component: {fileID: 1232865128240068124}
   m_Layer: 0
   m_Name: S_pipe_parts (1)
   m_TagString: pipe
@@ -364,25 +323,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &1232865128240068124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232865128240068114}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee169f700bbf0a45813cca5efa918a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_Increment1: {x: 2, y: 0, z: 0}
-  movement_Increment2: {x: 0, y: 2, z: 0}
-  movement_Increment3: {x: 2, y: 0, z: 0}
-  end_Point: {x: 2, y: 0, z: 0}
-  starting_Point: {x: 0, y: 0, z: 0}
-  character: {fileID: 0}
-  pipes_Controller_Object: {fileID: 0}
 --- !u!1001 &1743214939097631897
 PrefabInstance:
   m_ObjectHideFlags: 0

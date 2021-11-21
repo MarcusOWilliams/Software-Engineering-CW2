@@ -11,11 +11,30 @@ public class pipe_System : MonoBehaviour
     [SerializeField] Vector3 starting_Pipe_Position;
     [SerializeField] GameObject character;
     [SerializeField] string last_Pipe_End = "horizontal_right";
+    
 
-    // Set the initial position that the first pipe piece should be added at.
+    [SerializeField] GameObject small_Straight_Pipe;
+    [SerializeField] GameObject small_90Deg_Turn_Pipe;
+    [SerializeField] GameObject S_Pipe;
+
+    GameObject[] pipes_Array;
+
+
+
+
+
     private void Start()
     {
+        // Set the initial position that the first pipe piece should be added at.
         starting_Pipe_Position = starting_Pipe_Checkpoint.transform.position;
+
+        //Create an array of GameObject containing all of the possible pipes
+        pipes_Array = new GameObject[3];
+        pipes_Array[0] = small_Straight_Pipe;
+        pipes_Array[1] = small_90Deg_Turn_Pipe;
+        pipes_Array[2] = S_Pipe;
+
+       InvokeRepeating("generate_new_pipe", 1.0f, 2.0f);
     }
 
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
@@ -80,5 +99,16 @@ public class pipe_System : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    private void generate_new_pipe()
+    {
+        GameObject pipe_Selection = pipes_Array[Random.Range(0, pipes_Array.Length)];
+
+        Vector3 x_pos = Vector3.right * Random.Range(-1, 1);
+        Vector3 y_pos = Vector3.up * Random.Range(-3 , 3);
+        Vector3 z_pos = Vector3.forward * Random.Range(-3, 3);
+        Vector3 pipe_Location = GameObject.Find("pipe_Locator").transform.position + x_pos + y_pos + z_pos;
+        Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
     }
 }

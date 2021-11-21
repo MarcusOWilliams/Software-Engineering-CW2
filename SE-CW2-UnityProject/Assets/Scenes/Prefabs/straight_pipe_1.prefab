@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5243563602545017075}
   - component: {fileID: 5243563602545017074}
   - component: {fileID: 5243563602545017073}
-  - component: {fileID: 5243563602545017085}
   m_Layer: 0
   m_Name: straight_pipe_1
   m_TagString: pipe
@@ -98,25 +97,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: 1.44}
---- !u!114 &5243563602545017085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5243563602545017072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ee169f700bbf0a45813cca5efa918a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement_Increment1: {x: 2, y: 0, z: 0}
-  movement_Increment2: {x: 0, y: 0, z: 0}
-  movement_Increment3: {x: 0, y: 0, z: 0}
-  end_Point: {x: 2, y: 0, z: 0}
-  starting_Point: {x: 1, y: 0, z: 0}
-  character: {fileID: 0}
-  pipes_Controller_Object: {fileID: 0}
 --- !u!1001 &2982371138419768869
 PrefabInstance:
   m_ObjectHideFlags: 0
