@@ -34,7 +34,9 @@ public class pipe_System : MonoBehaviour
         pipes_Array[1] = small_90Deg_Turn_Pipe;
         pipes_Array[2] = S_Pipe;
 
-       InvokeRepeating("generate_new_pipe", 1.0f, 2.0f);
+        intial_Pipe_Generation();
+        generate_New_Pipe();
+        InvokeRepeating("generate_New_Pipe", 2.0f, 3.0f);
     }
 
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
@@ -101,7 +103,24 @@ public class pipe_System : MonoBehaviour
         return false;
     }
 
-    private void generate_new_pipe()
+
+    private void intial_Pipe_Generation()
+    {
+        Vector3 centre_Position = new Vector3(0.0f, 3.0f, 10.0f);
+
+        Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position, Quaternion.identity);
+
+        Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.up*3+Vector3.right*3, Quaternion.identity);
+
+        Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position +  Vector3.up * 2 + Vector3.left * 3, Quaternion.identity);
+
+        Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.down * 2 + Vector3.right * 4 + Vector3.forward * 2, Quaternion.identity);
+
+        Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.forward * -2 + Vector3.down * 1 + Vector3.right*6 , Quaternion.identity);
+
+        Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.left * 6 + Vector3.forward * -2+ Vector3.up*2, Quaternion.identity);
+    }
+    private void generate_New_Pipe()
     {
         GameObject pipe_Selection = pipes_Array[Random.Range(0, pipes_Array.Length)];
 
@@ -110,5 +129,8 @@ public class pipe_System : MonoBehaviour
         Vector3 z_pos = Vector3.forward * Random.Range(-3, 3);
         Vector3 pipe_Location = GameObject.Find("pipe_Locator").transform.position + x_pos + y_pos + z_pos;
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
+        Debug.Log(pipe_Selection.name + "generated");
     }
+
+
 }
