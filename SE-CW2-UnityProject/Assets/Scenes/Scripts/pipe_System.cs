@@ -34,9 +34,11 @@ public class pipe_System : MonoBehaviour
         pipes_Array[1] = small_90Deg_Turn_Pipe;
         pipes_Array[2] = S_Pipe;
 
+        //Create the starting pipes
         intial_Pipe_Generation();
-        generate_New_Pipe();
-        InvokeRepeating("generate_New_Pipe", 2.0f, 3.0f);
+        
+        //generate the first new pipe after 1 second then create another one every 2 seconds
+        InvokeRepeating("generate_New_Pipe", 1.0f, 3.0f);
     }
 
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
@@ -103,7 +105,7 @@ public class pipe_System : MonoBehaviour
         return false;
     }
 
-
+    //generates 6 random pipe pieces with set positions
     private void intial_Pipe_Generation()
     {
         Vector3 centre_Position = new Vector3(0.0f, 3.0f, 10.0f);
@@ -120,14 +122,20 @@ public class pipe_System : MonoBehaviour
 
         Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.left * 6 + Vector3.forward * -2+ Vector3.up*2, Quaternion.identity);
     }
+
+    //generates new pipes infront of the screen view
     private void generate_New_Pipe()
     {
+        //selects a random pipe object from the array
         GameObject pipe_Selection = pipes_Array[Random.Range(0, pipes_Array.Length)];
 
+        //creates a random position for the pipe based on the pipe locator (a child of the camera object)
         Vector3 x_pos = Vector3.right * Random.Range(-1, 1);
         Vector3 y_pos = Vector3.up * Random.Range(-3 , 3);
         Vector3 z_pos = Vector3.forward * Random.Range(-3, 3);
         Vector3 pipe_Location = GameObject.Find("pipe_Locator").transform.position + x_pos + y_pos + z_pos;
+        
+        //Instantiates the pipe object at the given position, keeping the rotation the same
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
         Debug.Log(pipe_Selection.name + "generated");
     }
