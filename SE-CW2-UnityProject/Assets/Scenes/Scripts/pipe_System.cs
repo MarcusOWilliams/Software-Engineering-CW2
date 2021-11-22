@@ -19,6 +19,9 @@ public class pipe_System : MonoBehaviour
 
     GameObject[] pipes_Array;
 
+    //used to delay generation of pipes
+    float pipe_Timer = 2.0f;
+
 
 
 
@@ -29,16 +32,15 @@ public class pipe_System : MonoBehaviour
         starting_Pipe_Position = starting_Pipe_Checkpoint.transform.position;
 
         //Create an array of GameObject containing all of the possible pipes
-        pipes_Array = new GameObject[3];
+        pipes_Array = new GameObject[2];
         pipes_Array[0] = small_Straight_Pipe;
-        pipes_Array[1] = small_90Deg_Turn_Pipe;
-        pipes_Array[2] = S_Pipe;
+        //pipes_Array[1] = small_90Deg_Turn_Pipe;
+        pipes_Array[1] = S_Pipe;
 
-        //Create the starting pipes
-        intial_Pipe_Generation();
-        
-        //generate the first new pipe after 1 second then create another one every 2 seconds
-        InvokeRepeating("generate_New_Pipe", 1.0f, 3.0f);
+        //Create the starting pipes and begin new pipe generation
+        start_Pipe_Generation();
+
+
     }
 
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
@@ -105,8 +107,9 @@ public class pipe_System : MonoBehaviour
         return false;
     }
 
-    //generates 6 random pipe pieces with set positions
-    private void intial_Pipe_Generation()
+    //generates 6 random pipe pieces with set positions to act ass the intial pipes
+    //calls the generate_pipe function to start pipe generation
+    private void start_Pipe_Generation()
     {
         Vector3 centre_Position = new Vector3(0.0f, 3.0f, 10.0f);
 
@@ -121,6 +124,9 @@ public class pipe_System : MonoBehaviour
         Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.forward * -2 + Vector3.down * 1 + Vector3.right*6 , Quaternion.identity);
 
         Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.left * 6 + Vector3.forward * -2+ Vector3.up*2, Quaternion.identity);
+
+        //starts generating new pipes after 2 seconds
+        Invoke("generate_New_Pipe", pipe_Timer);
     }
 
     //generates new pipes infront of the screen view
@@ -138,7 +144,12 @@ public class pipe_System : MonoBehaviour
         //Instantiates the pipe object at the given position, keeping the rotation the same
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
         Debug.Log(pipe_Selection.name + "generated");
+
+        //waits a given time then generates another pipe and increases the time waited, so pipes generate slower over time
+        pipe_Timer += pipe_Timer * 0.1f;
+        Invoke("generate_New_Pipe", pipe_Timer);
     }
+
 
 
 }
