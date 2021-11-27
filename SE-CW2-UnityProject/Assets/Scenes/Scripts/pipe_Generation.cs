@@ -12,7 +12,7 @@ public class pipe_Generation : MonoBehaviour
     GameObject[] pipes_Array;
 
     //used to delay generation of pipes
-    float pipe_Timer = 2.0f;
+    float pipe_Timer = 3.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +56,8 @@ public class pipe_Generation : MonoBehaviour
         GameObject pipe_Selection = pipes_Array[Random.Range(0, pipes_Array.Length)];
 
         //creates a random position for the pipe based on the pipe locator (a child of the camera object)
-        Vector3 x_pos = Vector3.right * Random.Range(-1, 1);
-        Vector3 y_pos = Vector3.up * Random.Range(-3, 3);
-        Vector3 z_pos = Vector3.forward * Random.Range(-3, 3);
-        Vector3 pipe_Location = GameObject.Find("pipe_Locator").transform.position + x_pos + y_pos + z_pos;
+        Vector3 y_pos = Vector3.up * Random.Range(-2, 6);
+        Vector3 pipe_Location = GameObject.Find("pipe_Locator").transform.position + y_pos;
 
         //Instantiates the pipe object at the given position, keeping the rotation the same
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
