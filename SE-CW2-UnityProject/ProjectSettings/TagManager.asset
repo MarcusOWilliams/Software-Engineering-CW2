@@ -6,6 +6,7 @@ TagManager:
   tags:
   - pipe
   - attached_pipe
+  - coin
   layers:
   - Default
   - TransparentFX
