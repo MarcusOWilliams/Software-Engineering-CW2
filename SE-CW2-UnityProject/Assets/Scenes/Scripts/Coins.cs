@@ -18,6 +18,10 @@ public class Coins : MonoBehaviour
     public static void coinCollected(Collider coin)
     {
         Debug.Log("Coin collected");
+
+        //add bonus to score
+        score.number_Of_Coins += 1;
+
         Destroy(coin.gameObject);
     }
 }

@@ -103,7 +103,7 @@ public class character_controller : MonoBehaviour
         }
 
         //if the character collides with a coin it call the coin collected method from the coins class
-        if (other.gameObject.name == "coin")
+        if (other.gameObject.tag == "coin")
         {
             Coins.coinCollected(other);
         }
