@@ -15,8 +15,9 @@ public class Coins : MonoBehaviour
     {
 
     }
-    public static void coinCollected()
+    public static void coinCollected(Collider coin)
     {
         Debug.Log("Coin collected");
+        Destroy(coin.gameObject);
     }
 }
