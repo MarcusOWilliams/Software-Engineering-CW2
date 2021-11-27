@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class score : MonoBehaviour
 {
 
-    public Transform character;
-    public Text scoreText;
+    [SerializeField] Transform character;
+    [SerializeField] Text scoreText;
     float score_Value;
     float total_Score;
     public static int number_Of_Coins;
@@ -20,7 +20,7 @@ public class score : MonoBehaviour
         //add the bonus from any coins collected
         total_Score = score_Value + (number_Of_Coins * 50);
 
-        scoreText.text = total_Score.ToString("0");
+        scoreText.text = $"Score: {total_Score.ToString("0")}";
     }
 
 
