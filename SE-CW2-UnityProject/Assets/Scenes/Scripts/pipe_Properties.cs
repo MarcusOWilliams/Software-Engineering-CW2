@@ -27,6 +27,9 @@ public class pipe_Properties : MonoBehaviour
     [SerializeField] string one_eighty_degree_pipe_end = "horizontal_left";
     [SerializeField] string two_seventy_degree_pipe_end = "horizontal_left";
 
+    //this bool checks if the pipe is being added in a reverse way
+    public bool is_pipe_reversed;
+
     // This list contains the game object checkpoints childed under the pipe holder object, which are used as character movement checkpoints
     public List<GameObject> checkpoint_List = new List<GameObject>();
 

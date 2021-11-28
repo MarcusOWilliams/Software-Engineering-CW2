@@ -89,13 +89,25 @@ public class character_controller : MonoBehaviour
     // If the  character goes off screen, we will change the game_state to "game_over."
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("triggered");
+        
+        //wrap in an if statement to check if it is the death wall that is colliding
+        if (other.gameObject.name == "death_Wall")
+        {
 
-        // Set the new game state using the game_state_controller.
-        gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
+            // Set the new game state using the game_state_controller.
+            gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
 
-        // This bool is now false, which is used in the animation script.
-        isGameOver = true;
+            // This bool is now false, which is used in the animation script.
+            isGameOver = true;
+        }
+
+        //if the character collides with a coin it call the coin collected method from the coins class
+        if (other.gameObject.tag == "coin")
+        {
+            Coins.coinCollected(other);
+        }
+
+
     }
 
 }
