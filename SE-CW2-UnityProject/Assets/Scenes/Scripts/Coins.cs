@@ -30,7 +30,7 @@ public class Coins : MonoBehaviour
     {
         float y_pos = Random.Range(-1, 5);
 
-        Vector3 coin_Location = new Vector3(GameObject.Find("pipe_Locator").transform.position.x, y_pos, 3.25f);
+        Vector3 coin_Location = new Vector3(GameObject.Find("pipe_Locator").transform.position.x-5f, y_pos, 3.25f);
         Instantiate(coin, coin_Location, Quaternion.identity);
     }
 }
