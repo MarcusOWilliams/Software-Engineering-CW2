@@ -12,16 +12,16 @@ public class pipe_Generation : MonoBehaviour
     GameObject[] pipes_Array;
 
     //used to delay generation of pipes
-    float pipe_Timer = 3.0f;
+    float pipe_Timer = 2.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         //Create an array of GameObject containing all of the possible pipes
-        pipes_Array = new GameObject[2];
+        pipes_Array = new GameObject[3];
         pipes_Array[0] = small_Straight_Pipe;
-        //pipes_Array[1] = small_90Deg_Turn_Pipe;
-        pipes_Array[1] = S_Pipe;
+        pipes_Array[1] = small_90Deg_Turn_Pipe;
+        pipes_Array[2] = S_Pipe;
 
         //Create the starting pipes and begin new pipe generation
         start_Pipe_Generation();

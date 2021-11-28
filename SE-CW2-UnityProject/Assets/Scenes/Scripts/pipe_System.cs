@@ -11,6 +11,7 @@ public class pipe_System : MonoBehaviour
     [SerializeField] Vector3 starting_Pipe_Position;
     [SerializeField] GameObject character;
     [SerializeField] string last_Pipe_End = "horizontal_right";
+
     
 
     
@@ -29,9 +30,12 @@ public class pipe_System : MonoBehaviour
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
     public void add_Pipe(GameObject pipe_Piece)
     {
+        
+        
         // If the pipe piece can be added to the pipe system, then add it.
         if (check_Pipe_Piece_Can_Be_Added(pipe_Piece))
         {
+
             // Move pipe piece to the starting pipe position for a new pipe.
             pipe_Piece.transform.position = starting_Pipe_Position;
 
@@ -42,8 +46,18 @@ public class pipe_System : MonoBehaviour
             List<GameObject> pipe_Piece_Checkpoint_List = new List<GameObject>();
             pipe_Piece_Checkpoint_List = pipe_Piece.GetComponent<pipe_Properties>().checkpoint_List;
 
+             
+            
             // Create a list of the checkpoints positions from the pipe piece's checkpoint list.
             List<Vector3> pipe_Piece_Checkpoint_Vecs_List = new List<Vector3>();
+
+            if (pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed)
+            {
+                Vector3 difference_in_position = pipe_Piece_Checkpoint_List[pipe_Piece_Checkpoint_List.Count - 1].transform.position - pipe_Piece.transform.position;
+                pipe_Piece.transform.position = pipe_Piece.transform.position - difference_in_position;
+                pipe_Piece_Checkpoint_List.Reverse();
+            }
+
             for (int i = 0; i < pipe_Piece_Checkpoint_List.Count; i++)
             {
                 // *** NOTE: May remove the line below in future. It adds the checkpoint game objects to the pipe systems public list (for potential use in identifying pipe overlaps).
@@ -56,11 +70,16 @@ public class pipe_System : MonoBehaviour
                 character.GetComponent<character_controller>().movement_Queue.Enqueue(pipe_Piece_Checkpoint_List[i].transform.position);
             }
 
+            
+
             // Set the new starting pipe position based on the new end of the pipe system
             starting_Pipe_Position = pipe_Piece_Checkpoint_Vecs_List[pipe_Piece_Checkpoint_Vecs_List.Count - 1];
 
             // Record and set the new direction of the end of the pipe system to check if future pipe piece may be added onto it.
             last_Pipe_End = pipe_Piece.GetComponent<pipe_Properties>().pipe_end;
+
+            Debug.Log(last_Pipe_End);
+
 
             // Change tag of pipe to "attached_pipe" for the Pipes_Interface script reference.
             pipe_Piece.tag = "attached_pipe";
@@ -75,6 +94,7 @@ public class pipe_System : MonoBehaviour
         {
             return true;
         }
+       
         else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_start == "horizontal_right" && last_Pipe_End == "horizontal_left")
         {
             return true;
@@ -85,6 +105,32 @@ public class pipe_System : MonoBehaviour
         }
         else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_start == "vertical_down" && last_Pipe_End == "vertical_up")
         {
+            return true;
+        }
+        else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_end == "horizontal_left" && last_Pipe_End == "horizontal_right")
+        {
+            
+            pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed = true;
+            pipe_Piece.GetComponent<pipe_Properties>().pipe_end = pipe_Piece.GetComponent<pipe_Properties>().pipe_start;
+
+            return true;
+        }
+        else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_end == "horizontal_right" && last_Pipe_End == "horizontal_left")
+        {
+            pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed = true;
+            pipe_Piece.GetComponent<pipe_Properties>().pipe_end = pipe_Piece.GetComponent<pipe_Properties>().pipe_start;
+            return true;
+        }
+        else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_end == "vertical_up" && last_Pipe_End == "vertical_down")
+        {
+            pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed = true;
+            pipe_Piece.GetComponent<pipe_Properties>().pipe_end = pipe_Piece.GetComponent<pipe_Properties>().pipe_start;
+            return true;
+        }
+        else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_end == "vertical_down" && last_Pipe_End == "vertical_up")
+        {
+            pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed = true;
+            pipe_Piece.GetComponent<pipe_Properties>().pipe_end = pipe_Piece.GetComponent<pipe_Properties>().pipe_start;
             return true;
         }
         return false;
