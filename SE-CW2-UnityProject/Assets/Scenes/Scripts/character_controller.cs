@@ -93,7 +93,6 @@ public class character_controller : MonoBehaviour
         //wrap in an if statement to check if it is the death wall that is colliding
         if (other.gameObject.name == "death_Wall")
         {
-            Debug.Log("triggered");
 
             // Set the new game state using the game_state_controller.
             gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";

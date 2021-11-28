@@ -11,6 +11,7 @@ public class pipe_System : MonoBehaviour
     [SerializeField] Vector3 starting_Pipe_Position;
     [SerializeField] GameObject character;
     [SerializeField] string last_Pipe_End = "horizontal_right";
+
     
 
     
@@ -29,6 +30,7 @@ public class pipe_System : MonoBehaviour
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
     public void add_Pipe(GameObject pipe_Piece)
     {
+        
         // If the pipe piece can be added to the pipe system, then add it.
         if (check_Pipe_Piece_Can_Be_Added(pipe_Piece))
         {
@@ -44,6 +46,12 @@ public class pipe_System : MonoBehaviour
 
             // Create a list of the checkpoints positions from the pipe piece's checkpoint list.
             List<Vector3> pipe_Piece_Checkpoint_Vecs_List = new List<Vector3>();
+
+            if (pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed)
+            {
+                pipe_Piece_Checkpoint_List.Reverse();
+            }
+
             for (int i = 0; i < pipe_Piece_Checkpoint_List.Count; i++)
             {
                 // *** NOTE: May remove the line below in future. It adds the checkpoint game objects to the pipe systems public list (for potential use in identifying pipe overlaps).
@@ -73,6 +81,11 @@ public class pipe_System : MonoBehaviour
     {
         if (pipe_Piece.GetComponent<pipe_Properties>().pipe_start == "horizontal_left" && last_Pipe_End == "horizontal_right")
         {
+            return true;
+        }
+        else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_end == "horizontal_right" && last_Pipe_End == "horizontal_right")
+        {
+            pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed = true;
             return true;
         }
         else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_start == "horizontal_right" && last_Pipe_End == "horizontal_left")
