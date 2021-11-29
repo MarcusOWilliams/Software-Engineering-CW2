@@ -91,7 +91,7 @@ public class character_controller : MonoBehaviour
     {
         
         //wrap in an if statement to check if it is the death wall that is colliding
-        if (other.gameObject.name == "death_Wall")
+        if (other.gameObject.name == "death_Wall" || other.gameObject.name == "death_Ceiling"|| other.gameObject.name == "death_Floor")
         {
 
             // Set the new game state using the game_state_controller.
