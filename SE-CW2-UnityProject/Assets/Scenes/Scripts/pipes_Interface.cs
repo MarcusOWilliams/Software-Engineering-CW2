@@ -18,61 +18,73 @@ public class pipes_Interface : MonoBehaviour
     // A reference to the selected pipe piece
     public GameObject selected_pipe;
 
+    // A reference to the game state object
+    [SerializeField] GameObject gameStateObject;
+
 
     // Update is called once per frame
     void Update()
     {
-        // If a pipe has just been clicked.
-        if (selected_Pipe_Queue.Count != 0)
+        // If game over happens
+        if (gameStateObject.GetComponent<game_state_controller>().game_state == "game_over")
         {
-            // Take that selected pipe game object from the queue. 
-            selected_pipe = selected_Pipe_Queue.Dequeue();
-
-            // Make sure the script knows a pipe is selected.
-            isPipeSelected = true;
-
-            // Send selected pipe piece to onEnter() and onRotate.
-            onRotateInput(selected_pipe);
-            onEnter(selected_pipe);
-            
-        } 
-        // Or if a pipe has been selected from before (i.e. no longer in the queue but not clicked off from), and not in pipe system.
-        else if (isPipeSelected == true && selected_pipe.tag == "pipe")
-        {
-            // Send selected pipe piece to onEnter() and onRotate.
-            onRotateInput(selected_pipe);
-            onEnter(selected_pipe);
+            selected_Pipe_Queue.Clear();
         }
-
-        //https://answers.unity.com/questions/411793/selecting-a-game-object-with-a-mouse-click-on-it.html heavily used code for below
-        // If the mouse has been clicked.
-        if (Input.GetMouseButtonDown(0))
+        else
         {
-            Debug.Log("Mouse is down");
-
-            // Get the details about the object clicked on.
-            RaycastHit hitInfo = new RaycastHit();
-
-            // See if the object did actually hit something (hit = true or false).
-            bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-
-            // If the click was on an object, and that object had the tag "pipe":
-            if (hit && hitInfo.transform.gameObject.tag == "pipe")
+            // If a pipe has just been clicked.
+            if (selected_Pipe_Queue.Count != 0)
             {
-                // If that pipe was previously selected, de-select it, and vice versa.
-                isPipeSelected = !isPipeSelected;
+                // Take that selected pipe game object from the queue. 
+                selected_pipe = selected_Pipe_Queue.Dequeue();
 
-                // Queue the selected pipe up, so next frame this script has it ready to use.
-                selected_Pipe_Queue.Enqueue(hitInfo.transform.gameObject);
-                Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+                // Make sure the script knows a pipe is selected.
+                isPipeSelected = true;
+
+                // Send selected pipe piece to onEnter() and onRotate.
+                onRotateInput(selected_pipe);
+                onEnter(selected_pipe);
+
             }
-            // Or if nothing is hit, or it wasn't a pipe:
-            else
+            // Or if a pipe has been selected from before (i.e. no longer in the queue but not clicked off from), and not in pipe system.
+            else if (isPipeSelected == true && selected_pipe.tag == "pipe")
             {
-                isPipeSelected = false;
+                // Send selected pipe piece to onEnter() and onRotate.
+                onRotateInput(selected_pipe);
+                onEnter(selected_pipe);
             }
 
+            //https://answers.unity.com/questions/411793/selecting-a-game-object-with-a-mouse-click-on-it.html heavily used code for below
+            // If the mouse has been clicked.
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("Mouse is down");
+
+                // Get the details about the object clicked on.
+                RaycastHit hitInfo = new RaycastHit();
+
+                // See if the object did actually hit something (hit = true or false).
+                bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
+
+                // If the click was on an object, and that object had the tag "pipe":
+                if (hit && hitInfo.transform.gameObject.tag == "pipe")
+                {
+                    // If that pipe was previously selected, de-select it, and vice versa.
+                    isPipeSelected = !isPipeSelected;
+
+                    // Queue the selected pipe up, so next frame this script has it ready to use.
+                    selected_Pipe_Queue.Enqueue(hitInfo.transform.gameObject);
+                    Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+                }
+                // Or if nothing is hit, or it wasn't a pipe:
+                else
+                {
+                    isPipeSelected = false;
+                }
+
+            }
         }
+
     }
 
 

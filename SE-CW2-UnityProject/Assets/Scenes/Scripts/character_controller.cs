@@ -40,48 +40,52 @@ public class character_controller : MonoBehaviour
         // Save the character position as char_Pos
         Vector3 char_Pos = character.transform.position;
 
-        // Code below fixes a bug where the character over/under shoots the target and gets stuck.
-        // If the character is within 0.01f horizontal and vertical distance to the target.
-        if (Mathf.Abs(Mathf.Abs(char_Pos.x) - Mathf.Abs(target.x)) < 0.01f && Mathf.Abs(Mathf.Abs(char_Pos.y) - Mathf.Abs(target.y)) < 0.01f)
+        //Code below stops character moving after death
+        if (!isGameOver)
         {
-            // Move the character to the target position.
-            character.transform.position = target;
+            // Code below fixes a bug where the character over/under shoots the target and gets stuck.
+            // If the character is within 0.01f horizontal and vertical distance to the target.
+            if (Mathf.Abs(Mathf.Abs(char_Pos.x) - Mathf.Abs(target.x)) < 0.01f && Mathf.Abs(Mathf.Abs(char_Pos.y) - Mathf.Abs(target.y)) < 0.01f)
+            {
+                // Move the character to the target position.
+                character.transform.position = target;
 
-            // Set the character position variable to the target (and now character) position.
-            char_Pos = target;
+                // Set the character position variable to the target (and now character) position.
+                char_Pos = target;
 
-            // Stop the character from running.
-            isRunning = false;
-        }
+                // Stop the character from running.
+                isRunning = false;
+            }
 
-        //if the character is not at the target.
-        else
-        {
-            // Keep the character running.
-            isRunning = true;
-        }
-        // Code below moves the character towards the target position if it is not at the position already.
-        if (char_Pos != target)
-        {
-            //https://www.codegrepper.com/code-examples/csharp/unity+how+to+move+a+gameobject+towards+another+gameobject: code below used heavily from this site.
+            //if the character is not at the target.
+            else
+            {
+                // Keep the character running.
+                isRunning = true;
+            }
+            // Code below moves the character towards the target position if it is not at the position already.
+            if (char_Pos != target)
+            {
+                //https://www.codegrepper.com/code-examples/csharp/unity+how+to+move+a+gameobject+towards+another+gameobject: code below used heavily from this site.
 
-            // Calculate direction vector.
-            Vector3 direction = character.transform.position - target;
+                // Calculate direction vector.
+                Vector3 direction = character.transform.position - target;
 
-            // Normalize resultant vector to unit Vector.
-            direction = -direction.normalized;
+                // Normalize resultant vector to unit Vector.
+                direction = -direction.normalized;
 
-            // Move in the direction of the direction vector every frame.
-            character.transform.position += direction * Time.deltaTime * character_speed;
+                // Move in the direction of the direction vector every frame.
+                character.transform.position += direction * Time.deltaTime * character_speed;
 
 
-            
-        }
-        // If the character is at the current target, but has more movement queued up from the next pipe, or current pipe with one or more bends in it.
-        else if (char_Pos == target && movement_Queue.Count != 0)
-        {
-            // Target is set by adding the movement vector from the queue to the current character position.
-            target = movement_Queue.Dequeue();
+
+            }
+            // If the character is at the current target, but has more movement queued up from the next pipe, or current pipe with one or more bends in it.
+            else if (char_Pos == target && movement_Queue.Count != 0)
+            {
+                // Target is set by adding the movement vector from the queue to the current character position.
+                target = movement_Queue.Dequeue();
+            }
         }
 
     }

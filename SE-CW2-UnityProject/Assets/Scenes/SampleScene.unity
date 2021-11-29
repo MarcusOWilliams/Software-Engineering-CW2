@@ -864,6 +864,7 @@ MonoBehaviour:
   pipe_System_Object: {fileID: 1932856556}
   isPipeSelected: 0
   selected_pipe: {fileID: 569679820}
+  gameStateObject: {fileID: 501813269}
 --- !u!4 &569679822
 Transform:
   m_ObjectHideFlags: 0
