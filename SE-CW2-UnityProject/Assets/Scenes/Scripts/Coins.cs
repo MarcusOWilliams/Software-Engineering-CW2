@@ -11,11 +11,13 @@ public class Coins : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //generarte 3 intial starting coins
         starting_Coins();
         InvokeRepeating("generate_Coin", 0.1f, 3f);
     }
 
-
+    //add bonus points to the score when a coin is collected
+    //destroy coin object when it is collected
     public static void coinCollected(Collider coin)
     {
 
@@ -25,6 +27,7 @@ public class Coins : MonoBehaviour
         Destroy(coin.gameObject);
     }
 
+    //generate a new coin infront of camera view at a ranom point on the y-axis
     private void generate_Coin()
     {
         float y_pos = Random.Range(-1, 5);
@@ -33,6 +36,7 @@ public class Coins : MonoBehaviour
         Instantiate(coin, coin_Location, Quaternion.identity);
     }
 
+    //generarte 3 intial starting coins at set locations
     private void starting_Coins()
     {
         Vector3 coin_placer = new Vector3(7, 0, 3.25f);
