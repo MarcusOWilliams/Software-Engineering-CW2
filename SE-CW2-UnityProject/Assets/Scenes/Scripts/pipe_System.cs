@@ -51,6 +51,7 @@ public class pipe_System : MonoBehaviour
             // Create a list of the checkpoints positions from the pipe piece's checkpoint list.
             List<Vector3> pipe_Piece_Checkpoint_Vecs_List = new List<Vector3>();
 
+            //if the pipe is reversed the checkpoints are added in reverse order and the piece is moved so the back end is connected to the main pipe
             if (pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed)
             {
                 Vector3 difference_in_position = pipe_Piece_Checkpoint_List[pipe_Piece_Checkpoint_List.Count - 1].transform.position - pipe_Piece.transform.position;
@@ -88,6 +89,7 @@ public class pipe_System : MonoBehaviour
     }
 
     // Check that the pipe piece may be added to the system given its rotation.
+    //check both the entry an exit of the pipe selected
     private bool check_Pipe_Piece_Can_Be_Added(GameObject pipe_Piece)
     {
         if (pipe_Piece.GetComponent<pipe_Properties>().pipe_start == "horizontal_left" && last_Pipe_End == "horizontal_right")
@@ -109,7 +111,7 @@ public class pipe_System : MonoBehaviour
         }
         else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_end == "horizontal_left" && last_Pipe_End == "horizontal_right")
         {
-            
+            //if teh entry matched then the pipe is tagged as reversed and the pipe end is changed to the new pipe end
             pipe_Piece.GetComponent<pipe_Properties>().is_pipe_reversed = true;
             pipe_Piece.GetComponent<pipe_Properties>().pipe_end = pipe_Piece.GetComponent<pipe_Properties>().pipe_start;
 

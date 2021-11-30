@@ -20,6 +20,7 @@ public class score : MonoBehaviour
         //add the bonus from any coins collected
         total_Score = score_Value + (number_Of_Coins * 50);
 
+        //update the score text
         scoreText.text = $"Score: {total_Score.ToString("0")}";
     }
 

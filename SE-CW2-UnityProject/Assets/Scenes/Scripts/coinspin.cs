@@ -9,6 +9,6 @@ public class coinspin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0f, 100f, 0f) * Time.deltaTime);
+        transform.Rotate(new Vector3(0f, 75f, 0f) * Time.deltaTime);
     }
 }
