@@ -45,7 +45,7 @@ public class character_controller : MonoBehaviour
         {
             // Code below fixes a bug where the character over/under shoots the target and gets stuck.
             // If the character is within 0.01f horizontal and vertical distance to the target.
-            if (Mathf.Abs(Mathf.Abs(char_Pos.x) - Mathf.Abs(target.x)) < 0.01f && Mathf.Abs(Mathf.Abs(char_Pos.y) - Mathf.Abs(target.y)) < 0.01f)
+            if (Mathf.Abs(Mathf.Abs(char_Pos.x) - Mathf.Abs(target.x)) < 0.1f && Mathf.Abs(Mathf.Abs(char_Pos.y) - Mathf.Abs(target.y)) < 0.1f)
             {
                 // Move the character to the target position.
                 character.transform.position = target;
