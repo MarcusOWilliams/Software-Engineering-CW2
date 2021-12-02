@@ -8,6 +8,8 @@ public class pipe_Generation : MonoBehaviour
     [SerializeField] GameObject small_Straight_Pipe;
     [SerializeField] GameObject small_90Deg_Turn_Pipe;
     [SerializeField] GameObject S_Pipe;
+    [SerializeField] GameObject medium_Straight_Pipe;
+    [SerializeField] GameObject long_Straight_Pipe;
 
     GameObject[] pipes_Array;
 
@@ -18,13 +20,14 @@ public class pipe_Generation : MonoBehaviour
     void Start()
     {
         //Create an array of GameObject containing all of the possible pipes
-        pipes_Array = new GameObject[3];
+        pipes_Array = new GameObject[5];
         pipes_Array[0] = small_Straight_Pipe;
         pipes_Array[1] = small_90Deg_Turn_Pipe;
         pipes_Array[2] = S_Pipe;
-
-        //Create the starting pipes and begin new pipe generation
-        start_Pipe_Generation();
+        pipes_Array[3] = medium_Straight_Pipe;
+        pipes_Array[4] = long_Straight_Pipe;
+    //Create the starting pipes and begin new pipe generation
+    start_Pipe_Generation();
     }
 
     //generates 6 random pipe pieces with set positions to act ass the intial pipes

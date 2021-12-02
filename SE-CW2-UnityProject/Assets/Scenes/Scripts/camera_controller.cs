@@ -10,6 +10,7 @@ public class camera_controller : MonoBehaviour
     [SerializeField] GameObject main_Camera;
     [SerializeField] GameObject gameStateObject;
 
+
     // This float is proportional to the cameras movement speed.
     public float camera_speed = 5f;
 
@@ -25,4 +26,6 @@ public class camera_controller : MonoBehaviour
         }
         
     }
+
+
 }
