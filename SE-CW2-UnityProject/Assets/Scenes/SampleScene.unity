@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c01dabadaa35a04a9ab4783b36e6b38, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4698
+      value: 3.8398001
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5c01dabadaa35a04a9ab4783b36e6b38, type: 3}
       propertyPath: m_LocalPosition.z
@@ -189,7 +189,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 5c01dabadaa35a04a9ab4783b36e6b38, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 83752850c6dd0044496d858ff954eb94, type: 2}
+      objectReference: {fileID: 2100000, guid: c72a0a7d58d48f940b11d415f0b70265, type: 2}
     - target: {fileID: 919132149155446097, guid: 5c01dabadaa35a04a9ab4783b36e6b38, type: 3}
       propertyPath: m_Name
       value: halfCentreSPipe
@@ -266,7 +266,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52c9083b299dfa3479caa56bb9f0a98c, type: 2}
+      objectReference: {fileID: 2100000, guid: 34064f3d315b98345a106a2a4608d773, type: 2}
     - target: {fileID: 919132149155446097, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_Name
       value: halfSideStraightPipe
@@ -426,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344846706}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.9, y: 0.6698917, z: 0}
+  m_LocalPosition: {x: 10.9, y: 1.0398918, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027925509}
@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.12
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1031,7 +1031,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52c9083b299dfa3479caa56bb9f0a98c, type: 2}
+      objectReference: {fileID: 2100000, guid: 34064f3d315b98345a106a2a4608d773, type: 2}
     - target: {fileID: 919132149155446097, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_Name
       value: halfSideStraightPipe (2)
@@ -1255,7 +1255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7.15
+      value: 7.52
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1292,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 52c9083b299dfa3479caa56bb9f0a98c, type: 2}
+      objectReference: {fileID: 2100000, guid: 34064f3d315b98345a106a2a4608d773, type: 2}
     - target: {fileID: 919132149155446097, guid: a9f950ccb73d2974c9bfea5bd2bd200c, type: 3}
       propertyPath: m_Name
       value: halfSideStraightPipe (3)
@@ -1727,7 +1727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1048444825}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.93, y: 6.61, z: 0}
+  m_LocalPosition: {x: 10.93, y: 6.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027925509}
@@ -1925,6 +1925,10 @@ PrefabInstance:
       propertyPath: m_CastShadows
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2294294313801104175, guid: e8ba0ac279eb22246836eb653d3c9fdf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34064f3d315b98345a106a2a4608d773, type: 2}
     - target: {fileID: 5243563602545017072, guid: e8ba0ac279eb22246836eb653d3c9fdf, type: 3}
       propertyPath: m_Name
       value: straight_pipe_1 (1)
@@ -1933,6 +1937,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5243563602545017074, guid: e8ba0ac279eb22246836eb653d3c9fdf, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 34064f3d315b98345a106a2a4608d773, type: 2}
     - target: {fileID: 5243563602545017084, guid: e8ba0ac279eb22246836eb653d3c9fdf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2262,7 +2270,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 7, y: -59}
+  m_AnchoredPosition: {x: 7, y: -2}
   m_SizeDelta: {x: -543.46014, y: -462.74008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1440715876
@@ -2286,13 +2294,13 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 31
+    m_Font: {fileID: 12800000, guid: 7f9ea7a7323ea334dbe861e4dbb0c496, type: 3}
+    m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 1
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2457,7 +2465,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578789007}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2574,7 +2582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1585638959}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.530003, y: 2.56, z: 0.67000085}
+  m_LocalPosition: {x: 10.530003, y: 2.93, z: 0.67000085}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027925509}
@@ -2606,7 +2614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669789963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.9, y: 6.87, z: 0}
+  m_LocalPosition: {x: 21.9, y: 7.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2027925509}
@@ -3191,8 +3199,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -65.3, y: -284.6}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: -741, y: 376}
+  m_SizeDelta: {x: 599.9, y: 179.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998375547
 MonoBehaviour:
@@ -3229,19 +3237,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 24
+    m_Font: {fileID: 12800000, guid: 7f9ea7a7323ea334dbe861e4dbb0c496, type: 3}
+    m_FontSize: 142
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 40
+    m_MaxSize: 149
     m_Alignment: 5
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: Score
 --- !u!222 &1998375549
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3631,7 +3639,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: d6ef7b561a74fbb4c86f18c1bfb4629b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 83752850c6dd0044496d858ff954eb94, type: 2}
+      objectReference: {fileID: 2100000, guid: c72a0a7d58d48f940b11d415f0b70265, type: 2}
     - target: {fileID: 919132149155446097, guid: d6ef7b561a74fbb4c86f18c1bfb4629b, type: 3}
       propertyPath: m_Name
       value: halfTurnPipe
