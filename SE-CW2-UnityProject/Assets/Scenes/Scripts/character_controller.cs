@@ -106,11 +106,18 @@ public class character_controller : MonoBehaviour
         }
 
         //if the character collides with a coin it call the coin collected method from the coins class
-        if (other.gameObject.tag == "coin")
+        else if (other.gameObject.tag == "coin")
         {
             Coins.coinCollected(other);
         }
+        else if (other.gameObject.tag == "Obstacle")
+        {
+            // Set the new game state using the game_state_controller.
+            gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
 
+            // This bool is now false, which is used in the animation script.
+            isGameOver = true;
+        }
 
     }
 
