@@ -16,7 +16,9 @@ public class character_controller : MonoBehaviour
     [SerializeField] GameObject starting_Checkpoint;
 
     // When isRunning == true, the character should be running.
+
     public bool isRunning;
+
 
     // When isGameOver == true, the game state should be changed to game over (for animation)
     public bool isGameOver = false;
@@ -56,13 +58,7 @@ public class character_controller : MonoBehaviour
                 // Stop the character from running.
                 isRunning = false;
             }
-
-            //if the character is not at the target.
-            else
-            {
-                // Keep the character running.
-                isRunning = true;
-            }
+ 
             // Code below moves the character towards the target position if it is not at the position already.
             if (char_Pos != target)
             {
@@ -71,11 +67,17 @@ public class character_controller : MonoBehaviour
                 // Calculate direction vector.
                 Vector3 direction = character.transform.position - target;
 
+
                 // Normalize resultant vector to unit Vector.
                 direction = -direction.normalized;
 
                 // Move in the direction of the direction vector every frame.
                 character.transform.position += direction * Time.deltaTime * character_speed;
+
+
+                // Keep the character running in the correct direction.
+                isRunning = true;
+                
 
 
 
@@ -106,11 +108,18 @@ public class character_controller : MonoBehaviour
         }
 
         //if the character collides with a coin it call the coin collected method from the coins class
-        if (other.gameObject.tag == "coin")
+        else if (other.gameObject.tag == "coin")
         {
             Coins.coinCollected(other);
         }
+        else if (other.gameObject.tag == "Obstacle")
+        {
+            // Set the new game state using the game_state_controller.
+            gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
 
+            // This bool is now false, which is used in the animation script.
+            isGameOver = true;
+        }
 
     }
 

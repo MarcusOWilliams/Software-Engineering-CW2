@@ -13,7 +13,7 @@ public class Coins : MonoBehaviour
     {
         //generarte 3 intial starting coins
         starting_Coins();
-        InvokeRepeating("generate_Coin", 0.1f, 3f);
+        InvokeRepeating("generate_Coin", 0.1f, 6f);
     }
 
     //add bonus points to the score when a coin is collected
