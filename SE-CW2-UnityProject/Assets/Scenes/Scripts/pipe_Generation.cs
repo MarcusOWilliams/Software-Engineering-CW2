@@ -11,6 +11,7 @@ public class pipe_Generation : MonoBehaviour
     [SerializeField] GameObject medium_Straight_Pipe;
     [SerializeField] GameObject long_Straight_Pipe;
     [SerializeField] GameObject U_Pipe;
+    [SerializeField] GameObject Z_Pipe;
 
     GameObject[] pipes_Array;
 
@@ -21,13 +22,14 @@ public class pipe_Generation : MonoBehaviour
     void Start()
     {
         //Create an array of GameObject containing all of the possible pipes
-        pipes_Array = new GameObject[6];
+        pipes_Array = new GameObject[7];
         pipes_Array[0] = small_Straight_Pipe;
         pipes_Array[1] = small_90Deg_Turn_Pipe;
         pipes_Array[2] = S_Pipe;
         pipes_Array[3] = medium_Straight_Pipe;
         pipes_Array[4] = long_Straight_Pipe;
         pipes_Array[5] = U_Pipe;
+        pipes_Array[6] = Z_Pipe;
         //Create the starting pipes and begin new pipe generation
         start_Pipe_Generation();
     }
@@ -68,8 +70,7 @@ public class pipe_Generation : MonoBehaviour
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
         Debug.Log(pipe_Selection.name + "generated");
 
-        //waits a given time then generates another pipe and increases the time waited, so pipes generate slower over time
-        pipe_Timer += pipe_Timer * 0.1f;
+        //waits a given time then generates another pipe
         Invoke("generate_New_Pipe", pipe_Timer);
     }
 }
