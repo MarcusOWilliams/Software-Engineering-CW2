@@ -9,7 +9,7 @@ public class UI_controller : MonoBehaviour
     // Obtain reference to the canvas and game state objects
     [SerializeField] GameObject UI_Canvas;
     [SerializeField] GameObject gameStateObject;
-    [SerializeField] GameObject homeMenu;
+    [SerializeField] GameObject homeMenuButton;
 
     // Update is called once per frame
     void Update()
@@ -21,19 +21,20 @@ public class UI_controller : MonoBehaviour
         if (game_state == "game_over")
         {
             UI_Canvas.SetActive(true);
-            homeMenu.SetActive(true);
-            Debug.Log("gameover");
+            homeMenuButton.SetActive(true);
+            //Debug.Log("gameover");
         }
         // If the state of the game is not game over, then don't display the game over overlay.
         else
         {
             UI_Canvas.SetActive(false);
-            homeMenu.SetActive(false);
+            homeMenuButton.SetActive(false);
         }
     }
 
     public void OnHomeButtonClicked()
     {
+        Debug.Log("home button clicked");
         SceneManager.LoadScene("MenuScene");
     }
 }
