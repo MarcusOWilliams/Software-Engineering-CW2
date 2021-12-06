@@ -6,7 +6,7 @@ public class Coins : MonoBehaviour
 {
 
     [SerializeField] GameObject coin;
-    [SerializeField] GameObject coin_prefab;
+
 
     // Start is called before the first frame update
     void Start()
