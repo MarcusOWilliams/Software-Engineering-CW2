@@ -16,13 +16,13 @@ public class pipe_Generation : MonoBehaviour
     GameObject[] pipes_Array;
 
     //used to delay generation of pipes
-    float pipe_Timer = 2.0f;
+    float pipe_Timer = 1.8f;
 
     // Start is called before the first frame update
     void Start()
     {
         //Create an array of GameObject containing all of the possible pipes
-        pipes_Array = new GameObject[7];
+        pipes_Array = new GameObject[8];
         pipes_Array[0] = small_Straight_Pipe;
         pipes_Array[1] = small_90Deg_Turn_Pipe;
         pipes_Array[2] = S_Pipe;
@@ -30,6 +30,7 @@ public class pipe_Generation : MonoBehaviour
         pipes_Array[4] = long_Straight_Pipe;
         pipes_Array[5] = U_Pipe;
         pipes_Array[6] = Z_Pipe;
+        pipes_Array[7] = small_90Deg_Turn_Pipe;
         //Create the starting pipes and begin new pipe generation
         start_Pipe_Generation();
     }
@@ -53,7 +54,7 @@ public class pipe_Generation : MonoBehaviour
         Instantiate(pipes_Array[Random.Range(0, pipes_Array.Length)], centre_Position + Vector3.left * 6 + Vector3.forward * -2 + Vector3.up * 2, Quaternion.identity);
 
         //starts generating new pipes after 2 seconds
-        Invoke("generate_New_Pipe", pipe_Timer);
+        Invoke("generate_New_Pipe", 1);
     }
 
     //generates new pipes infront of the screen view
@@ -70,6 +71,10 @@ public class pipe_Generation : MonoBehaviour
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
         Debug.Log(pipe_Selection.name + "generated");
 
+        //increase the speed pipes generate as camera speed up until pipes are generating twice per second
+        if (pipe_Timer > 0.5f) { 
+            pipe_Timer = pipe_Timer * 0.99f; 
+        }
         //waits a given time then generates another pipe
         Invoke("generate_New_Pipe", pipe_Timer);
     }

@@ -17,8 +17,7 @@ public class camera_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //slowly increases the speed of the camera to increase game difficulty
-        camera_speed = camera_speed + .0001f;
+        
         // First we access the game_state via the object gameStateObject, that holds the game_state string.
         string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
         
@@ -27,6 +26,14 @@ public class camera_controller : MonoBehaviour
             main_Camera.transform.Translate(camera_speed * Time.deltaTime, 0, 0);
         }
         
+    }
+
+    //called once every physics update
+    //speeding up camera here stops faster framerates making the camera speed up faster
+    private void FixedUpdate()
+    {
+        //slowly increases the speed of the camera to increase game difficulty
+        camera_speed = camera_speed + .0001f;
     }
 
 
