@@ -28,7 +28,7 @@ public class camera_controller : MonoBehaviour
         
     }
 
-    //called once every physics update
+    //called once every physics update, 50 times per second
     //speeding up camera here stops faster framerates making the camera speed up faster
     private void FixedUpdate()
     {

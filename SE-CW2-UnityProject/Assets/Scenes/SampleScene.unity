@@ -396,7 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 1100990395}
-  coin_prefab: {fileID: 0}
 --- !u!4 &107878503
 Transform:
   m_ObjectHideFlags: 0
@@ -2657,6 +2656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbd6f7dc72f6a54dbe3b62bbcd5b34a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterObject: {fileID: 413841361}
   CC: {fileID: 413841367}
 --- !u!1 &963194225
 GameObject:
