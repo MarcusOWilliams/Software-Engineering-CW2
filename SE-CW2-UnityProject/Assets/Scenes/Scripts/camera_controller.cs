@@ -17,6 +17,7 @@ public class camera_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //slowly increases the speed of the camera to increase game difficulty
         camera_speed = camera_speed + .0001f;
         // First we access the game_state via the object gameStateObject, that holds the game_state string.
         string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
