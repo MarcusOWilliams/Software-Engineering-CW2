@@ -93,6 +93,37 @@ public class pipe_Properties : MonoBehaviour
                 current_Rotation = current_Rotation - 90;
             }
 
+        //allows change of entry for U shaped piped
+        //changes checkpoint rendering for starting point
+        }else if (direction == "up"|| direction == "down")
+        {
+            if (gameObject.name.Contains("U_pipe"))
+            {
+                List<GameObject> pipe__Checkpoint_List = new List<GameObject>();
+                pipe__Checkpoint_List = gameObject.GetComponent<pipe_Properties>().checkpoint_List;
+
+                //removes any currently highlighted entry
+                foreach(GameObject checkpoint in pipe__Checkpoint_List)
+                {
+                    checkpoint.GetComponent<Renderer>().enabled = false;
+                }
+
+
+                //highlights the new entry point and reverse/unreverses the pipe direction
+                if (gameObject.GetComponent<pipe_Properties>().is_pipe_reversed)
+                {
+                    GameObject c1 = pipe__Checkpoint_List[0];
+                    c1.GetComponent<Renderer>().enabled = true;
+                    gameObject.GetComponent<pipe_Properties>().is_pipe_reversed = false;
+                }
+                else
+                {
+                    GameObject c1 = pipe__Checkpoint_List[3];
+                    c1.GetComponent<Renderer>().enabled = true;
+                    gameObject.GetComponent<pipe_Properties>().is_pipe_reversed = true;
+                }
+                
+            }
         }
 
     }

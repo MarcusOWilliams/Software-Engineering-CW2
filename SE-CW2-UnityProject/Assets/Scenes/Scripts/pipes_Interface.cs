@@ -118,5 +118,13 @@ public class pipes_Interface : MonoBehaviour
             // Rotate the pipe anti-clockwise.
             selected_pipe.GetComponent<pipe_Properties>().pipe_Rotate("left");
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && selected_pipe.tag == "pipe")
+        {
+            selected_pipe.GetComponent<pipe_Properties>().pipe_Rotate("up");
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && selected_pipe.tag == "pipe")
+        {
+            selected_pipe.GetComponent<pipe_Properties>().pipe_Rotate("down");
+        }
     }
 }
