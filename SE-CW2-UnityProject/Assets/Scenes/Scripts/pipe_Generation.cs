@@ -17,7 +17,8 @@ public class pipe_Generation : MonoBehaviour
     GameObject[] pipes_Array;
 
     //used to delay generation of pipes
-    float pipe_Timer = 1.8f;
+    float pipe_Timer = 2.2f;
+    int pipe_Number = 0;
 
     
     // Start is called before the first frame update
@@ -65,22 +66,30 @@ public class pipe_Generation : MonoBehaviour
     //generates new pipes infront of the screen view
     private void generate_New_Pipe()
     {
+        pipe_Number++;
+
         //selects a random pipe object from the array
         GameObject pipe_Selection = pipes_Array[Random.Range(0, pipes_Array.Length)];
 
         //creates a random position for the pipe based on the pipe locator (a child of the camera object)
-        Vector3 y_pos = Vector3.up * Random.Range(-2, 6);
+        //the possible positions alternate between top and bottom half of the screen to help the spreading out of pipes
+
+        Vector3 y_pos;
+
+        if (pipe_Number % 2 == 0)
+        {
+            y_pos = Vector3.up * Random.Range(3, 7);
+        }
+        else
+        {
+            y_pos = Vector3.up * Random.Range(-4, 2);
+        }
         Vector3 pipe_Location = GameObject.Find("pipe_Locator").transform.position + y_pos;
 
         //Instantiates the pipe object at the given position, keeping the rotation the same
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
         Debug.Log(pipe_Selection.name + "generated");
-
-        //increase the speed pipes generate as camera speed up until pipes are generating twice per second
-        if (pipe_Timer > 0.5f) { 
-            pipe_Timer = pipe_Timer * 0.99f; 
-        }
-
+      
         string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
         if (game_state == "play")
         {
