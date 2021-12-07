@@ -33,6 +33,15 @@ public class pipe_Properties : MonoBehaviour
     // This list contains the game object checkpoints childed under the pipe holder object, which are used as character movement checkpoints
     public List<GameObject> checkpoint_List = new List<GameObject>();
 
+    // The spotlight used to highlight the pipe
+    [SerializeField] GameObject pipeHighlight;
+
+    private void Start()
+    {
+        pipeHighlight.SetActive(false);
+    }
+
+
     private void Update()
     {
         // Update the strings which contain where the start and end of the pipe is pointing, based on the pipe's rotation.
@@ -126,5 +135,15 @@ public class pipe_Properties : MonoBehaviour
             }
         }
 
+    }
+
+    public void turnHighlightOn()
+    {
+        pipeHighlight.SetActive(true);
+    }
+
+    public void turnHighlightOff()
+    {
+        pipeHighlight.SetActive(false);
     }
 }

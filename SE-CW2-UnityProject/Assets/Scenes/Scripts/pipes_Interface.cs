@@ -35,8 +35,18 @@ public class pipes_Interface : MonoBehaviour
             // If a pipe has just been clicked.
             if (selected_Pipe_Queue.Count != 0)
             {
+                //De-highlight any selected pipe
+                try {
+                    selected_pipe.GetComponent<pipe_Properties>().turnHighlightOff();
+                }
+                catch {
+                }
+
                 // Take that selected pipe game object from the queue. 
                 selected_pipe = selected_Pipe_Queue.Dequeue();
+
+                // Highlight newly selected pipe.
+                selected_pipe.GetComponent<pipe_Properties>().turnHighlightOn();
 
                 // Make sure the script knows a pipe is selected.
                 isPipeSelected = true;

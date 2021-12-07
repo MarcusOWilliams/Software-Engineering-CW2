@@ -84,6 +84,9 @@ public class pipe_System : MonoBehaviour
 
             // Change tag of pipe to "attached_pipe" for the Pipes_Interface script reference.
             pipe_Piece.tag = "attached_pipe";
+
+            // De-highlight added piece.
+            pipe_Piece.GetComponent<pipe_Properties>().turnHighlightOff();
         }
 
     }
