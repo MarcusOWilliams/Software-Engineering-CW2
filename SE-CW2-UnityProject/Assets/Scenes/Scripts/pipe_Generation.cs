@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class pipe_Generation : MonoBehaviour
 {
+    [SerializeField] GameObject gameStateObject;
 
     [SerializeField] GameObject small_Straight_Pipe;
     [SerializeField] GameObject small_90Deg_Turn_Pipe;
@@ -18,9 +19,13 @@ public class pipe_Generation : MonoBehaviour
     //used to delay generation of pipes
     float pipe_Timer = 1.8f;
 
+    
     // Start is called before the first frame update
     void Start()
     {
+
+        
+
         //Create an array of GameObject containing all of the possible pipes
         pipes_Array = new GameObject[8];
         pipes_Array[0] = small_Straight_Pipe;
@@ -75,7 +80,13 @@ public class pipe_Generation : MonoBehaviour
         if (pipe_Timer > 0.5f) { 
             pipe_Timer = pipe_Timer * 0.99f; 
         }
-        //waits a given time then generates another pipe
-        Invoke("generate_New_Pipe", pipe_Timer);
+
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
+        if (game_state == "play")
+        {
+            //waits a given time then generates another pipe
+            Invoke("generate_New_Pipe", pipe_Timer);
+        }
+       
     }
 }
