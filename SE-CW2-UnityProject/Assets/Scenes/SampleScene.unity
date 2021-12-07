@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39218998, g: 0.40780735, b: 0.3997435, a: 1}
+  m_IndirectSpecularColor: {r: 0.39219043, g: 0.40780786, b: 0.39974385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coin: {fileID: 1100990395}
-  coin_prefab: {fileID: 0}
+  gameStateObject: {fileID: 501813269}
 --- !u!4 &107878503
 Transform:
   m_ObjectHideFlags: 0
@@ -4163,6 +4163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 513106b4ece71d248bac81f464095208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateObject: {fileID: 501813269}
   bomb: {fileID: 1139638888}
   spike_Ball: {fileID: 393105771}
   asteroid: {fileID: 605331577}
@@ -5010,7 +5011,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -40.322796, y: -15.884705}
+  m_AnchoredPosition: {x: -40.322754, y: -15.884705}
   m_SizeDelta: {x: 657.3838, y: 427.6659}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1500669830
@@ -6615,6 +6616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94f61a1eb0005a346bfebe434be8b430, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateObject: {fileID: 501813269}
   small_Straight_Pipe: {fileID: 1687824822}
   small_90Deg_Turn_Pipe: {fileID: 1855687612}
   S_Pipe: {fileID: 2027925504}
