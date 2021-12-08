@@ -8,12 +8,15 @@ public class Coins : MonoBehaviour
     [SerializeField] GameObject coin;
 
 
+    [SerializeField] GameObject gameStateObject;
+
+
     // Start is called before the first frame update
     void Start()
     {
         //generarte 3 intial starting coins
         starting_Coins();
-        InvokeRepeating("generate_Coin", 0.1f, 6f);
+        Invoke("generate_Coin", 0.1f);
     }
 
     //add bonus points to the score when a coin is collected
@@ -34,6 +37,12 @@ public class Coins : MonoBehaviour
 
         Vector3 coin_Location = new Vector3(GameObject.Find("pipe_Locator").transform.position.x, y_pos, 3.25f);
         Instantiate(coin, coin_Location, Quaternion.identity);
+
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
+        if (game_state == "play")
+        {
+            Invoke("generate_Coin", 6f);
+        }
     }
 
     //generarte 3 intial starting coins at set locations

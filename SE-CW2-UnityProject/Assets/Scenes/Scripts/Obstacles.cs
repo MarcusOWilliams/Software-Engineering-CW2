@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Obstacles : MonoBehaviour
 {
+    [SerializeField] GameObject gameStateObject;
 
     [SerializeField] GameObject bomb;
     [SerializeField] GameObject spike_Ball;
@@ -16,17 +17,17 @@ public class Obstacles : MonoBehaviour
     {
         //create an array of all the obstacke game objects
         obstacle_Array = new GameObject[3];
-        obstacle_Array[0]= bomb;
-        obstacle_Array[1]= spike_Ball;
-        obstacle_Array[2]= asteroid;
+        obstacle_Array[0] = bomb;
+        obstacle_Array[1] = spike_Ball;
+        obstacle_Array[2] = asteroid;
 
-        InvokeRepeating("generate_Obstacle", 1f, 6f);
+        Invoke("generate_Obstacle", 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //generates a random obstacle infront of camera view
@@ -42,5 +43,10 @@ public class Obstacles : MonoBehaviour
 
         //generate the obatacle
         Instantiate(obstacle, obstacle_Location, Quaternion.identity);
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
+        if (game_state == "play")
+        {
+            Invoke("generate_Obstacle", 6f);
+        }
     }
 }
