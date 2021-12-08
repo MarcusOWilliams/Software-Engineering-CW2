@@ -10,6 +10,7 @@ public class game_UI_Controller : MonoBehaviour
     [SerializeField] GameObject gameOverText;
     [SerializeField] GameObject gameStateObject;
     [SerializeField] GameObject homeMenuButton;
+    [SerializeField] GameObject gameoverRestartButton;
     public GameObject PauseScreen;
     public GameObject PauseButton;
 
@@ -24,6 +25,7 @@ public class game_UI_Controller : MonoBehaviour
         {
             gameOverText.SetActive(true);
             homeMenuButton.SetActive(true);
+            gameoverRestartButton.SetActive(true);
             //Debug.Log("gameover");
         }
         // If the state of the game is not game over, then don't display the game over overlay.
@@ -31,6 +33,7 @@ public class game_UI_Controller : MonoBehaviour
         {
             gameOverText.SetActive(false);
             homeMenuButton.SetActive(false);
+            gameoverRestartButton.SetActive(false);
         }
     }
 
@@ -58,6 +61,13 @@ public class game_UI_Controller : MonoBehaviour
         PauseButton.SetActive(true);
     }
 
+    public void OnRestartButtonClicked()
+    {
+        gameStateObject.GetComponent<game_State_Controller>().game_State = "play";
+        PauseScreen.SetActive(false);
+        PauseButton.SetActive(true);
+        SceneManager.LoadScene("SampleScene");
+    }
 
     public void OnExitGameButtonClicked()
     {
