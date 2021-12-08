@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class character_controller : MonoBehaviour
+public class character_Controller : MonoBehaviour
 {
     // First I establish items needed in this script. Note: public and [SerializeField] allow the paramters to be seen and changed in the Unity Editor.
 
@@ -42,8 +42,8 @@ public class character_controller : MonoBehaviour
         // Save the character position as char_Pos
         Vector3 char_Pos = character.transform.position;
 
-        //Code below stops character moving after death
-        if (!isGameOver)
+        // Code below stops character moving after death or in pause state
+        if (gameStateObject.GetComponent<game_State_Controller>().game_State == "play")
         {
             // Code below fixes a bug where the character over/under shoots the target and gets stuck.
             // If the character is within 0.01f horizontal and vertical distance to the target.
@@ -58,7 +58,7 @@ public class character_controller : MonoBehaviour
                 // Stop the character from running.
                 isRunning = false;
             }
- 
+
             // Code below moves the character towards the target position if it is not at the position already.
             if (char_Pos != target)
             {
@@ -77,7 +77,7 @@ public class character_controller : MonoBehaviour
 
                 // Keep the character running in the correct direction.
                 isRunning = true;
-                
+
 
 
 
@@ -92,16 +92,17 @@ public class character_controller : MonoBehaviour
 
     }
 
+
     // If the  character goes off screen, we will change the game_state to "game_over."
     private void OnTriggerEnter(Collider other)
     {
-        
+
         //wrap in an if statement to check if it is the death wall that is colliding
-        if (other.gameObject.name == "death_Wall" || other.gameObject.name == "death_Ceiling"|| other.gameObject.name == "death_Floor")
+        if (other.gameObject.name == "death_Wall" || other.gameObject.name == "death_Ceiling" || other.gameObject.name == "death_Floor")
         {
 
             // Set the new game state using the game_state_controller.
-            gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
+            gameStateObject.GetComponent<game_State_Controller>().game_State = "game_over";
 
             // This bool is now false, which is used in the animation script.
             isGameOver = true;
@@ -115,7 +116,7 @@ public class character_controller : MonoBehaviour
         else if (other.gameObject.tag == "Obstacle")
         {
             // Set the new game state using the game_state_controller.
-            gameStateObject.GetComponent<game_state_controller>().game_state = "game_over";
+            gameStateObject.GetComponent<game_State_Controller>().game_State = "game_over";
 
             // This bool is now false, which is used in the animation script.
             isGameOver = true;

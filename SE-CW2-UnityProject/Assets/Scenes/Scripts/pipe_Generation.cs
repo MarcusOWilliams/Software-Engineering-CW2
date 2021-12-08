@@ -90,7 +90,7 @@ public class pipe_Generation : MonoBehaviour
         Instantiate(pipe_Selection, pipe_Location, Quaternion.identity);
         Debug.Log(pipe_Selection.name + "generated");
       
-        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
+        string game_state = gameStateObject.GetComponent<game_State_Controller>().game_State;
         if (game_state == "play")
         {
             //waits a given time then generates another pipe

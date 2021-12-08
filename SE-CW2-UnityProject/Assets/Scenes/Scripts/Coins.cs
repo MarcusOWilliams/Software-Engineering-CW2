@@ -36,7 +36,7 @@ public class Coins : MonoBehaviour
         Vector3 coin_Location = new Vector3(GameObject.Find("pipe_Locator").transform.position.x, y_pos, 3.25f);
         Instantiate(coin, coin_Location, Quaternion.identity);
 
-        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
+        string game_state = gameStateObject.GetComponent<game_State_Controller>().game_State;
         if (game_state == "play")
         {
             Invoke("generate_Coin", 6f);

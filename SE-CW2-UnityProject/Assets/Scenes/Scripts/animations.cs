@@ -10,7 +10,7 @@ public class animations : MonoBehaviour
 
 
     //uses the character_controller script as CC, to access if the character should be running
-    public character_controller CC;
+    public character_Controller CC;
 
     // Start is called before the first frame update
     void Start()
