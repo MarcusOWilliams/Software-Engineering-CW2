@@ -9,7 +9,11 @@ public class score : MonoBehaviour
     float score_Value;
     float total_Score;
     public static int number_Of_Coins;
-
+    private void Start()
+    {
+        score_Value = 0;
+        number_Of_Coins = 0;
+    }
     // Update is called once per frame
     void Update()
     {

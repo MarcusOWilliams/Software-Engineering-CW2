@@ -12,9 +12,9 @@ public class pipe_System : MonoBehaviour
     [SerializeField] GameObject character;
     [SerializeField] string last_Pipe_End = "horizontal_right";
 
-    
 
-    
+
+
 
 
 
@@ -30,8 +30,8 @@ public class pipe_System : MonoBehaviour
     // Add a pipe piece to the pipe system IF the pipe piece can be added to the system.
     public void add_Pipe(GameObject pipe_Piece)
     {
-        
-        
+
+
         // If the pipe piece can be added to the pipe system, then add it.
         if (check_Pipe_Piece_Can_Be_Added(pipe_Piece))
         {
@@ -46,8 +46,8 @@ public class pipe_System : MonoBehaviour
             List<GameObject> pipe_Piece_Checkpoint_List = new List<GameObject>();
             pipe_Piece_Checkpoint_List = pipe_Piece.GetComponent<pipe_Properties>().checkpoint_List;
 
-             
-            
+
+
             // Create a list of the checkpoints positions from the pipe piece's checkpoint list.
             List<Vector3> pipe_Piece_Checkpoint_Vecs_List = new List<Vector3>();
 
@@ -71,7 +71,7 @@ public class pipe_System : MonoBehaviour
                 character.GetComponent<character_controller>().movement_Queue.Enqueue(pipe_Piece_Checkpoint_List[i].transform.position);
             }
 
-            
+
 
             // Set the new starting pipe position based on the new end of the pipe system
             starting_Pipe_Position = pipe_Piece_Checkpoint_Vecs_List[pipe_Piece_Checkpoint_Vecs_List.Count - 1];
@@ -84,6 +84,9 @@ public class pipe_System : MonoBehaviour
 
             // Change tag of pipe to "attached_pipe" for the Pipes_Interface script reference.
             pipe_Piece.tag = "attached_pipe";
+
+            // De-highlight added piece.
+            pipe_Piece.GetComponent<pipe_Properties>().turnHighlightOff();
         }
 
     }
@@ -96,7 +99,7 @@ public class pipe_System : MonoBehaviour
         {
             return true;
         }
-       
+
         else if (pipe_Piece.GetComponent<pipe_Properties>().pipe_start == "horizontal_right" && last_Pipe_End == "horizontal_left")
         {
             return true;
@@ -137,6 +140,7 @@ public class pipe_System : MonoBehaviour
         }
         return false;
     }
+
 
 
 

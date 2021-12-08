@@ -33,6 +33,15 @@ public class pipe_Properties : MonoBehaviour
     // This list contains the game object checkpoints childed under the pipe holder object, which are used as character movement checkpoints
     public List<GameObject> checkpoint_List = new List<GameObject>();
 
+    // The spotlight used to highlight the pipe
+    [SerializeField] GameObject pipeHighlight;
+
+    private void Start()
+    {
+        pipeHighlight.SetActive(false);
+    }
+
+
     private void Update()
     {
         // Update the strings which contain where the start and end of the pipe is pointing, based on the pipe's rotation.
@@ -93,7 +102,48 @@ public class pipe_Properties : MonoBehaviour
                 current_Rotation = current_Rotation - 90;
             }
 
+        //allows change of entry for U shaped piped
+        //changes checkpoint rendering for starting point
+        }else if (direction == "up"|| direction == "down")
+        {
+            if (gameObject.name.Contains("U_pipe"))
+            {
+                List<GameObject> pipe__Checkpoint_List = new List<GameObject>();
+                pipe__Checkpoint_List = gameObject.GetComponent<pipe_Properties>().checkpoint_List;
+
+                //removes any currently highlighted entry
+                foreach(GameObject checkpoint in pipe__Checkpoint_List)
+                {
+                    checkpoint.GetComponent<Renderer>().enabled = false;
+                }
+
+
+                //highlights the new entry point and reverse/unreverses the pipe direction
+                if (gameObject.GetComponent<pipe_Properties>().is_pipe_reversed)
+                {
+                    GameObject c1 = pipe__Checkpoint_List[0];
+                    c1.GetComponent<Renderer>().enabled = true;
+                    gameObject.GetComponent<pipe_Properties>().is_pipe_reversed = false;
+                }
+                else
+                {
+                    GameObject c1 = pipe__Checkpoint_List[3];
+                    c1.GetComponent<Renderer>().enabled = true;
+                    gameObject.GetComponent<pipe_Properties>().is_pipe_reversed = true;
+                }
+                
+            }
         }
 
+    }
+
+    public void turnHighlightOn()
+    {
+        pipeHighlight.SetActive(true);
+    }
+
+    public void turnHighlightOff()
+    {
+        pipeHighlight.SetActive(false);
     }
 }
