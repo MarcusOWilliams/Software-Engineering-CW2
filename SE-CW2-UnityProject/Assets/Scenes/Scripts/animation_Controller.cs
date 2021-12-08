@@ -8,7 +8,7 @@ public class animation_Controller : MonoBehaviour
     [SerializeField] GameObject characterObject;
 
     //uses the character_controller script as CC, to access if the character should be running
-    public character_controller CC;
+    public character_Controller CC;
 
     Rigidbody rb;
     Vector3 position;
