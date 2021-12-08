@@ -61,7 +61,7 @@ public class pipe_System : MonoBehaviour
                 pipe_Piece_Checkpoint_Vecs_List.Add(pipe_Piece_Checkpoint_List[i].transform.position);
 
                 // Add the checkpoint positions to the character's movement queue, so it will start moving towards each position sequentially.
-                character.GetComponent<character_Controller>().movement_Queue.Enqueue(pipe_Piece_Checkpoint_List[i].transform.position);
+                character.GetComponent<character_controller>().movement_Queue.Enqueue(pipe_Piece_Checkpoint_List[i].transform.position);
             }
 
 
