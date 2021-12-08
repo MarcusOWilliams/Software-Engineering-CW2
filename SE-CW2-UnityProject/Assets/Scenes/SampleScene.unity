@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.39219004, g: 0.4078075, b: 0.39974362, a: 1}
+  m_IndirectSpecularColor: {r: 0.39219043, g: 0.40780786, b: 0.39974385, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1446,14 +1446,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e884c5b3d0d9354990c39954aed516b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_speed: 5
+  character_speed: 0.002
   main_Camera: {fileID: 963194225}
   character: {fileID: 413841361}
   gameStateObject: {fileID: 501813269}
   starting_Checkpoint: {fileID: 1049974425}
   isRunning: 0
   isGameOver: 0
-  target: {x: 5, y: 0, z: 0}
+  target: {x: 0, y: 0, z: 0}
 --- !u!1 &419066549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,7 +1806,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 501813269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b4be8faac9bddfb44a32dabf7ffcec54, type: 3}
+  m_Script: {fileID: 11500000, guid: f2b1339a4460a764fa64b60fcb5a2f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   game_State: play
@@ -3365,6 +3365,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6144157f79bf6dc4c9c2a0b252792758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterObject: {fileID: 413841361}
   CC: {fileID: 413841367}
 --- !u!1 &963194225
 GameObject:
