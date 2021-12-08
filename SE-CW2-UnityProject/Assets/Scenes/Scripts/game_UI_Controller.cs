@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
-public class UI_Controller : MonoBehaviour
+public class game_UI_Controller : MonoBehaviour
 {
     // Obtain reference to the canvas and game state objects
     [SerializeField] GameObject gameOverText;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacles : MonoBehaviour
+public class obstacle_Controller : MonoBehaviour
 {
     [SerializeField] GameObject gameStateObject;
 
@@ -24,11 +24,6 @@ public class Obstacles : MonoBehaviour
         Invoke("generate_Obstacle", 1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     //generates a random obstacle infront of camera view
     private void generate_Obstacle()

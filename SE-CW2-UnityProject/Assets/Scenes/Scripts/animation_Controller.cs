@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class animations : MonoBehaviour
+public class animation_Controller : MonoBehaviour
 {
     Animator animator;
 
@@ -16,7 +16,7 @@ public class animations : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        
+
     }
 
     // Update is called once per frame
@@ -31,7 +31,7 @@ public class animations : MonoBehaviour
         {
             animator.SetBool("isRunning", true);
 
-            
+
         }
         else
         {
@@ -39,6 +39,6 @@ public class animations : MonoBehaviour
             animator.SetBool("isRunning", false);
 
         }
-        
+
     }
 }
