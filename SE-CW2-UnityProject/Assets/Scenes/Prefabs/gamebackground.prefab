@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5255133369653820000}
   - component: {fileID: 5255133369653820003}
   - component: {fileID: 5255133369653820007}
+  - component: {fileID: 3323131453510568604}
   - component: {fileID: 5255133369653820005}
   - component: {fileID: 5255133369653820004}
   m_Layer: 0
@@ -113,6 +114,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraTriggerCollider: {fileID: 0}
   gameBackground: {fileID: 5255133369653820002}
+  mainCamera: {fileID: 0}
+  collideWithBackground: {fileID: 0}
+--- !u!114 &3323131453510568604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5255133369653820002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ecb6d8d3a13234d82a6d496bcc8bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTriggerCollider: {fileID: 0}
+  gameBackground: {fileID: 0}
+  mainCamera: {fileID: 0}
+  collideWithBackground: {fileID: 0}
 --- !u!54 &5255133369653820005
 Rigidbody:
   m_ObjectHideFlags: 0

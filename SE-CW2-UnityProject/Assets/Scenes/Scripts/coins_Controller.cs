@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coins : MonoBehaviour
+public class coins_Controller : MonoBehaviour
 {
 
     [SerializeField] GameObject coin;
@@ -28,7 +28,7 @@ public class Coins : MonoBehaviour
         Destroy(coin.gameObject);
     }
 
-    //generate a new coin infront of camera view at a ranom point on the y-axis
+    //generate a new coin infront of camera view at a random point on the y-axis
     private void generate_Coin()
     {
         float y_pos = Random.Range(-1, 5);
@@ -36,7 +36,7 @@ public class Coins : MonoBehaviour
         Vector3 coin_Location = new Vector3(GameObject.Find("pipe_Locator").transform.position.x, y_pos, 3.25f);
         Instantiate(coin, coin_Location, Quaternion.identity);
 
-        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_State;
         if (game_state == "play")
         {
             Invoke("generate_Coin", 6f);
@@ -48,7 +48,7 @@ public class Coins : MonoBehaviour
     {
         Vector3 coin_placer = new Vector3(7, 0, 3.25f);
         Instantiate(coin, coin_placer, Quaternion.identity);
-        Instantiate(coin, coin_placer + Vector3.right*5 + Vector3.up*2, Quaternion.identity);
+        Instantiate(coin, coin_placer + Vector3.right * 5 + Vector3.up * 2, Quaternion.identity);
         Instantiate(coin, coin_placer + Vector3.right * 3 + Vector3.down * 2, Quaternion.identity);
     }
 }

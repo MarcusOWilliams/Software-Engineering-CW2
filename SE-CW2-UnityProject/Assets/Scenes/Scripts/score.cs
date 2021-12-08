@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class score : MonoBehaviour
 {
-
+    [SerializeField] GameObject gameStateObject;
     [SerializeField] Transform character;
     [SerializeField] Text scoreText;
     float score_Value;
@@ -17,15 +17,19 @@ public class score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //update the score to the furthest distance travelled by the character
-        //score will not decrease if moving backwards
-        score_Value = Mathf.Max(score_Value, character.position.x);
+        if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
+        {
+            //update the score to the furthest distance travelled by the character
+            //score will not decrease if moving backwards
+            score_Value = Mathf.Max(score_Value, character.position.x);
 
-        //add the bonus from any coins collected
-        total_Score = score_Value + (number_Of_Coins * 50);
+            //add the bonus from any coins collected
+            total_Score = score_Value + (number_Of_Coins * 50);
 
-        //update the score text
-        scoreText.text = $"Score: {total_Score.ToString("0")}";
+            //update the score text
+            scoreText.text = $"Score: {total_Score.ToString("0")}";
+        }
+
     }
 
 

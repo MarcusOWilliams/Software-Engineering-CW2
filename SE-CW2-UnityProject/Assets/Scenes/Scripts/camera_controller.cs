@@ -12,20 +12,21 @@ public class camera_controller : MonoBehaviour
 
 
     // This float is proportional to the cameras movement speed.
-    private float camera_speed = 1f;
+    public float camera_speed = 1f;
 
     // Update is called once per frame
     void Update()
     {
-        
+
         // First we access the game_state via the object gameStateObject, that holds the game_state string.
-        string game_state = gameStateObject.GetComponent<game_state_controller>().game_state;
-        
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_State;
+
         // If the game_state = "play" we want the camera to move continously.
-        if (game_state == "play"){
+        if (game_state == "play")
+        {
             main_Camera.transform.Translate(camera_speed * Time.deltaTime, 0, 0);
         }
-        
+
     }
 
     //called once every physics update

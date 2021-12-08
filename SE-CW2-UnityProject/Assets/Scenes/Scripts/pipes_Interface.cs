@@ -26,11 +26,11 @@ public class pipes_Interface : MonoBehaviour
     void Update()
     {
         // If game over happens
-        if (gameStateObject.GetComponent<game_state_controller>().game_state == "game_over")
+        if (gameStateObject.GetComponent<game_state_controller>().game_State == "game_over")
         {
             selected_Pipe_Queue.Clear();
         }
-        else
+        else if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
         {
             // If a pipe has just been clicked.
             if (selected_Pipe_Queue.Count != 0)
