@@ -17,7 +17,7 @@ public class score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameStateObject.GetComponent<game_State_Controller>().game_State == "play")
+        if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
         {
             //update the score to the furthest distance travelled by the character
             //score will not decrease if moving backwards

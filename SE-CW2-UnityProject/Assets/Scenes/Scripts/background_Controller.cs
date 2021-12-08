@@ -34,7 +34,7 @@ public class background_Controller : MonoBehaviour
         Vector3 background_Pos = gameObject.transform.position;
         GameObject newGamebackground = Instantiate(gameBackground, new Vector3(background_Pos.x + 99f, background_Pos.y, background_Pos.z), transform.rotation);
         yield return new WaitForSeconds(10);
-        while (gameStateObject.GetComponent<game_State_Controller>().game_State == "pause")
+        while (gameStateObject.GetComponent<game_state_controller>().game_State == "pause")
         {
             yield return new WaitForSeconds(10);
         }

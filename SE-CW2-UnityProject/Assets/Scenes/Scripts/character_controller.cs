@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class character_Controller : MonoBehaviour
+public class character_controller : MonoBehaviour
 {
     // First I establish items needed in this script. Note: public and [SerializeField] allow the paramters to be seen and changed in the Unity Editor.
 
@@ -43,7 +43,7 @@ public class character_Controller : MonoBehaviour
         Vector3 char_Pos = character.transform.position;
 
         // Code below stops character moving after death or in pause state
-        if (gameStateObject.GetComponent<game_State_Controller>().game_State == "play")
+        if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
         {
             // Code below fixes a bug where the character over/under shoots the target and gets stuck.
             // If the character is within 0.01f horizontal and vertical distance to the target.
@@ -102,7 +102,7 @@ public class character_Controller : MonoBehaviour
         {
 
             // Set the new game state using the game_state_controller.
-            gameStateObject.GetComponent<game_State_Controller>().game_State = "game_over";
+            gameStateObject.GetComponent<game_state_controller>().game_State = "game_over";
 
             // This bool is now false, which is used in the animation script.
             isGameOver = true;
@@ -116,7 +116,7 @@ public class character_Controller : MonoBehaviour
         else if (other.gameObject.tag == "Obstacle")
         {
             // Set the new game state using the game_state_controller.
-            gameStateObject.GetComponent<game_State_Controller>().game_State = "game_over";
+            gameStateObject.GetComponent<game_state_controller>().game_State = "game_over";
 
             // This bool is now false, which is used in the animation script.
             isGameOver = true;

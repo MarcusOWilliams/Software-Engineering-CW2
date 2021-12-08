@@ -9,7 +9,7 @@ public class coin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameStateObject.GetComponent<game_State_Controller>().game_State == "play")
+        if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
         {
             transform.Rotate(new Vector3(0f, 75f, 0f) * Time.deltaTime);
         }

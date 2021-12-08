@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class game_State_Controller : MonoBehaviour
+public class game_state_controller : MonoBehaviour
 {
     // First I establish items needed in this script. Note: public and [SerializeField] allow the paramters to be seen and changed in the Unity Editor.
     public string game_State = "play";

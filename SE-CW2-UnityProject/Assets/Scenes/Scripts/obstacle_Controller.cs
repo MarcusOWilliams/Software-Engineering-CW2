@@ -38,7 +38,7 @@ public class obstacle_Controller : MonoBehaviour
 
         //generate the obatacle
         Instantiate(obstacle, obstacle_Location, Quaternion.identity);
-        string game_state = gameStateObject.GetComponent<game_State_Controller>().game_State;
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_State;
         if (game_state == "play")
         {
             Invoke("generate_Obstacle", 6f);

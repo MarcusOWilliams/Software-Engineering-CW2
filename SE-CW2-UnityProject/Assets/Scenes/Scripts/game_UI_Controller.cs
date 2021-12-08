@@ -18,7 +18,7 @@ public class game_UI_Controller : MonoBehaviour
     void Update()
     {
         // Obtain the state of the game
-        string game_State = gameStateObject.GetComponent<game_State_Controller>().game_State;
+        string game_State = gameStateObject.GetComponent<game_state_controller>().game_State;
 
         // If the state of the game is "game over" then display the game over UI overlay
         if (game_State == "game_over")
@@ -45,9 +45,9 @@ public class game_UI_Controller : MonoBehaviour
 
     public void OnPauseButtonClicked()
     {
-        if (gameStateObject.GetComponent<game_State_Controller>().game_State == "play")
+        if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
         {
-            gameStateObject.GetComponent<game_State_Controller>().game_State = "pause";
+            gameStateObject.GetComponent<game_state_controller>().game_State = "pause";
             PauseScreen.SetActive(true);
             PauseButton.SetActive(false);
         }
@@ -56,14 +56,14 @@ public class game_UI_Controller : MonoBehaviour
 
     public void OnResumeButtonClicked()
     {
-        gameStateObject.GetComponent<game_State_Controller>().game_State = "play";
+        gameStateObject.GetComponent<game_state_controller>().game_State = "play";
         PauseScreen.SetActive(false);
         PauseButton.SetActive(true);
     }
 
     public void OnRestartButtonClicked()
     {
-        gameStateObject.GetComponent<game_State_Controller>().game_State = "play";
+        gameStateObject.GetComponent<game_state_controller>().game_State = "play";
         PauseScreen.SetActive(false);
         PauseButton.SetActive(true);
         SceneManager.LoadScene("SampleScene");
@@ -71,7 +71,7 @@ public class game_UI_Controller : MonoBehaviour
 
     public void OnExitGameButtonClicked()
     {
-        gameStateObject.GetComponent<game_State_Controller>().game_State = "menu";
+        gameStateObject.GetComponent<game_state_controller>().game_State = "menu";
         PauseScreen.SetActive(false);
         PauseButton.SetActive(false);
         Debug.Log("Exit button clicked");
