@@ -7,7 +7,7 @@ public class character_controller : MonoBehaviour
     // First I establish items needed in this script. Note: public and [SerializeField] allow the paramters to be seen and changed in the Unity Editor.
 
     // Alter this to change the character's speed throught the pipe system.
-    public float character_speed = 0.002f;
+    public float character_speed = 5f;
 
     // Referencing the camera, character, gamestate and starting checkpoint objects for use in the code.
     [SerializeField] GameObject main_Camera;

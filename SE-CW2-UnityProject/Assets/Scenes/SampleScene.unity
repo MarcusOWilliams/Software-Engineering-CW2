@@ -1416,7 +1416,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e884c5b3d0d9354990c39954aed516b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_speed: 0.002
+  character_speed: 5
   main_Camera: {fileID: 963194225}
   character: {fileID: 413841361}
   gameStateObject: {fileID: 501813269}
@@ -1467,7 +1467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e884c5b3d0d9354990c39954aed516b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character_speed: 0.002
+  character_speed: 5
   main_Camera: {fileID: 963194225}
   character: {fileID: 413841361}
   gameStateObject: {fileID: 501813269}
