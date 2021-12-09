@@ -64,7 +64,7 @@ public class pipe_Generation : MonoBehaviour
     }
 
     //generates new pipes infront of the screen view
-    private void generate_New_Pipe()
+    public void generate_New_Pipe()
     {
         pipe_Number++;
 

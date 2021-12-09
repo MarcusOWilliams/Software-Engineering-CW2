@@ -7529,6 +7529,9 @@ MonoBehaviour:
   gameoverRestartButton: {fileID: 1410835385}
   PauseScreen: {fileID: 763957298}
   PauseButton: {fileID: 1940731228}
+  pG: {fileID: 1903507868}
+  cC: {fileID: 107878504}
+  oC: {fileID: 588010215}
 --- !u!1 &1903507867
 GameObject:
   m_ObjectHideFlags: 0
@@ -8844,6 +8847,10 @@ PrefabInstance:
       propertyPath: gameBackground
       value: 
       objectReference: {fileID: 796123944}
+    - target: {fileID: 3323131453510568604, guid: a486a4bc54b2fb445a432825095a9414, type: 3}
+      propertyPath: gameStateObject
+      value: 
+      objectReference: {fileID: 501813269}
     - target: {fileID: 3323131453510568604, guid: a486a4bc54b2fb445a432825095a9414, type: 3}
       propertyPath: cameraTriggerCollider
       value: 

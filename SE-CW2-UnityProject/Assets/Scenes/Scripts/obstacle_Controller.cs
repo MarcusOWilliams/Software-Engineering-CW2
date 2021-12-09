@@ -26,7 +26,7 @@ public class obstacle_Controller : MonoBehaviour
 
 
     //generates a random obstacle infront of camera view
-    private void generate_Obstacle()
+    public void generate_Obstacle()
     {
         //select a random obstacle
         GameObject obstacle = obstacle_Array[Random.Range(0, obstacle_Array.Length)];
