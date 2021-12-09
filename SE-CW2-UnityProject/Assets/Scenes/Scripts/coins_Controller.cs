@@ -30,7 +30,7 @@ public class coins_Controller : MonoBehaviour
     }
 
     //generate a new coin infront of camera view at a random point on the y-axis
-    private void generate_Coin()
+    public void generate_Coin()
     {
         float y_pos = Random.Range(-1, 5);
 

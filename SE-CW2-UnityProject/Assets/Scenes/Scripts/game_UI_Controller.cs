@@ -14,6 +14,12 @@ public class game_UI_Controller : MonoBehaviour
     public GameObject PauseScreen;
     public GameObject PauseButton;
 
+    public pipe_Generation pG;
+    public coins_Controller cC;
+    public obstacle_Controller oC;
+
+
+
     // Update is called once per frame
     void Update()
     {
@@ -59,6 +65,11 @@ public class game_UI_Controller : MonoBehaviour
         gameStateObject.GetComponent<game_state_controller>().game_State = "play";
         PauseScreen.SetActive(false);
         PauseButton.SetActive(true);
+
+        //restart constant generation
+        //used to wait before restarting generationafter pause
+        StartCoroutine(waiter());
+        
     }
 
     public void OnRestartButtonClicked()
@@ -76,5 +87,19 @@ public class game_UI_Controller : MonoBehaviour
         PauseButton.SetActive(false);
         Debug.Log("Exit button clicked");
         SceneManager.LoadScene("MenuScene");
+    }
+
+    IEnumerator waiter()
+    {
+
+        //Wait for 4 seconds
+        yield return new WaitForSeconds(2);
+        pG.generate_New_Pipe();
+
+        yield return new WaitForSeconds(3);
+        cC.generate_Coin();
+
+        yield return new WaitForSeconds(1);
+        oC.generate_Obstacle();
     }
 }
