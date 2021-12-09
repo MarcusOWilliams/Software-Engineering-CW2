@@ -23,7 +23,8 @@ public class coins_Controller : MonoBehaviour
     {
 
         //add bonus to score
-        score.number_Of_Coins += 1;
+        score.number_Of_Coins ++;
+        menu_UI_Controller.saved_coin_count++;
 
         Destroy(coin.gameObject);
     }
