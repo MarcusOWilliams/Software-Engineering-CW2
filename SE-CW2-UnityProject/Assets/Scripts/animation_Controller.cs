@@ -13,6 +13,7 @@ public class animation_Controller : MonoBehaviour
     Rigidbody rb;
     Vector3 position;
     Vector3 old_position;
+    bool goingBackwards = false;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +53,28 @@ public class animation_Controller : MonoBehaviour
             {
                 animator.SetBool("isMovingDown", false);
                 animator.SetBool("isMovingUp", false);
+            }
+
+
+            if (position.x - old_position.x < 0f )
+            {
+                Debug.Log(position.x - old_position.x);
+                if (!goingBackwards)
+                {
+                    transform.RotateAround(transform.position, transform.up, 180f);
+                    goingBackwards = true;
+                }
+                
+            }
+            else
+            {
+                Debug.Log(position.x - old_position.x);
+                if (goingBackwards)
+                {
+                    transform.RotateAround(transform.position, transform.up, 180f);
+                    goingBackwards = false;
+                }
+
             }
 
 
