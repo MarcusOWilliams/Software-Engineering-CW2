@@ -37,7 +37,7 @@ public class score : MonoBehaviour
             int HS = menu_UI_Controller.highscore;
             if ((int) total_Score > HS)
             { 
-                menu_UI_Controller.highscore = (int) total_Score;
+                menu_UI_Controller.highscore = (int) total_Score+1;
                 
             }
             

@@ -58,7 +58,6 @@ public class animation_Controller : MonoBehaviour
 
             if (position.x - old_position.x < 0f )
             {
-                Debug.Log(position.x - old_position.x);
                 if (!goingBackwards)
                 {
                     transform.RotateAround(transform.position, transform.up, 180f);
@@ -68,7 +67,6 @@ public class animation_Controller : MonoBehaviour
             }
             else
             {
-                Debug.Log(position.x - old_position.x);
                 if (goingBackwards)
                 {
                     transform.RotateAround(transform.position, transform.up, 180f);
