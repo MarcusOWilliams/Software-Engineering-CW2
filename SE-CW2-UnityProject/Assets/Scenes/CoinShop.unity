@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 601255665}
   - component: {fileID: 601255664}
   m_Layer: 5
-  m_Name: StoryBackground
+  m_Name: CoinShopBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -628,8 +628,7 @@ RectTransform:
   m_Children:
   - {fileID: 667074350}
   - {fileID: 601255663}
-  - {fileID: 965603398}
-  - {fileID: 1111867322}
+  - {fileID: 945836373}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -827,7 +826,7 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &965603397
+--- !u!1 &945836372
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -835,23 +834,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 965603398}
-  - component: {fileID: 965603400}
-  - component: {fileID: 965603399}
+  - component: {fileID: 945836373}
+  - component: {fileID: 945836375}
+  - component: {fileID: 945836374}
   m_Layer: 5
-  m_Name: StoryText_Left
+  m_Name: PlaceholderText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &965603398
+--- !u!224 &945836373
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965603397}
+  m_GameObject: {fileID: 945836372}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -861,23 +860,23 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -409, y: 74}
-  m_SizeDelta: {x: 750, y: 800}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &965603399
+--- !u!114 &945836374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965603397}
+  m_GameObject: {fileID: 945836372}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -886,41 +885,25 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7f9ea7a7323ea334dbe861e4dbb0c496, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
+    m_FontSize: 60
+    m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 40
-    m_Alignment: 0
+    m_MaxSize: 60
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Stranger:\n \tYoung man, wake up!\n\n\nStranger:\n\tYou don't look like
-    a person from this dungeon, you must be like me, was thrown down from that cave
-    by those horrible \"people\". \n\n\nStranger:\n\tDon't worry we can be friends,
-    they threw me down here too. Just call me Old Tony. \n\n\n\n\nOld Tony: \n\tI've
-    been in this dungeon for I don't know how many years, trying to figure out a
-    way out. I wonder how my wife is, how is she doing... \n\n\nOld Tony: \n\tThis
-    is the door where EVERY time I walk in, I play that horrible game, and every
-    time I die in the game, I teleport back. Over the years, I tried thousands of
-    times and never managed to get past it. But I believe this must be the only way
-    out! \n\nOld Tony: \n\tWhen you walk through the door, the walls turn round,
-    as if you had gone into a tube. When you look back, the door closes and you see
-    a wall, and the wall is moving towards you! So the only way to keep you alive
-    is to run! But what's even more terrible is that after running for a while, you
-    will find that there is no road ahead, and then there is a big rock under your
-    feet! Don't worry, you'll see pipes hanging from the walls all around you. All
-    you have to do is pull the pipes up and attach them, so you can get into the
-    new pipes before the wall crushes you. Where this road leads I don't know. "
---- !u!222 &965603400
+  m_Text: Coin Shop Coming Soon...
+--- !u!222 &945836375
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965603397}
+  m_GameObject: {fileID: 945836372}
   m_CullTransparentMesh: 1
 --- !u!1 &1086223360
 GameObject:
@@ -1000,93 +983,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086223360}
-  m_CullTransparentMesh: 1
---- !u!1 &1111867321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1111867322}
-  - component: {fileID: 1111867324}
-  - component: {fileID: 1111867323}
-  m_Layer: 5
-  m_Name: StoryText_Right
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1111867322
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111867321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 717407793}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 363, y: 74}
-  m_SizeDelta: {x: 750, y: 800}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1111867323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111867321}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 12800000, guid: 7f9ea7a7323ea334dbe861e4dbb0c496, type: 3}
-    m_FontSize: 20
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: "\n\nYou barely open your eyes, but you can't see who's talking. \n\n\n\n\nNow
-    your eyes get used to the darkness and see the upturned finger in front of you
-    and the dark hole in the ceiling.\n\n\n\nYou're wondering how one minute you're
-    sitting on the couch with a gamepad and a chip in your mouth, and the next minute
-    you're lying in this dark room with a creepy old man. But you immediately believe
-    that the uncle in front of you means you no harm. \n\n\n\nYou try to placate
-    angry old Tony, and when he cools off, he introduces you to the desperate game.\n\n\n\n\n\n\n\n\n\n\n\n\n\nOld
-    Tony hasn't found this a way out in years, and it's up to you to find a way to
-    get out. "
---- !u!222 &1111867324
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111867321}
   m_CullTransparentMesh: 1
 --- !u!1 &1637598445
 GameObject:

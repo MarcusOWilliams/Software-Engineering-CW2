@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CoinShop_UI_Controller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // OnExitButtonClicked is linked to the back button of the scene which loads the main menu scene
+    public void OnExitButtonClicked()
     {
-        
+        SceneManager.LoadScene("MenuScene");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
