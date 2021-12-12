@@ -21,6 +21,8 @@ public class obstacle_Controller : MonoBehaviour
         obstacle_Array[1] = spike_Ball;
         obstacle_Array[2] = asteroid;
 
+        //start obsatcle generation
+        //after 1 second to aviod offset obstacle and coin generation to reduce overlapping
         Invoke("generate_Obstacle", 1f);
     }
 
@@ -36,7 +38,7 @@ public class obstacle_Controller : MonoBehaviour
 
         Vector3 obstacle_Location = new Vector3(GameObject.Find("pipe_Locator").transform.position.x, y_pos, 0f);
 
-        //generate the obatacle
+        //generate the obatacle while the game is still going at 6 second intervals
         Instantiate(obstacle, obstacle_Location, Quaternion.identity);
         string game_state = gameStateObject.GetComponent<game_state_controller>().game_State;
         if (game_state == "play")

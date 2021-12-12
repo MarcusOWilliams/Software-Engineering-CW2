@@ -37,11 +37,12 @@ public class pipe_Generation : MonoBehaviour
         pipes_Array[5] = U_Pipe;
         pipes_Array[6] = Z_Pipe;
         pipes_Array[7] = small_90Deg_Turn_Pipe;
+
         //Create the starting pipes and begin new pipe generation
         start_Pipe_Generation();
     }
 
-    //generates 6 random pipe pieces with set positions to act ass the intial pipes
+    //generates 6 random pipe pieces with set positions to act as the intial pipes
     //calls the generate_pipe function to start pipe generation
     private void start_Pipe_Generation()
     {
