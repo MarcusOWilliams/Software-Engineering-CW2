@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class backstory_UI_Controller : MonoBehaviour
 {
 
-    // Update is called once per frame
+    // OnExitButtonClicked is linked to the back button of the scene which loads the main menu scene
     public void OnExitButtonClicked()
     {
         SceneManager.LoadScene("MenuScene");
