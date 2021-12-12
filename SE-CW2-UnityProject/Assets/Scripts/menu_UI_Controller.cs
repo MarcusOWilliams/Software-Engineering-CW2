@@ -39,4 +39,13 @@ public class menu_UI_Controller : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnBackStoryClicked()
+    {
+        SceneManager.LoadScene("BackStory");
+    }
+    public void OnCoinShopClicked()
+    {
+        SceneManager.LoadScene("CoinShop");
+    }
+
 }
