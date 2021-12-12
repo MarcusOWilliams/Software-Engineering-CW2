@@ -32,6 +32,11 @@ public class menu_UI_Controller : MonoBehaviour
         SceneManager.LoadScene("SampleScene");
     }
 
+    public void OnControlButtonClicked()
+    {
+        SceneManager.LoadScene("Controls");
+    }
+
     public void OnExitButtonClicked()
     {
         

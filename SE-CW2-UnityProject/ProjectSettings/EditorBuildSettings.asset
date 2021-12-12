@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CoinShop.unity
     guid: 5e17955283128bb4ab453aff3605ea0f
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: b037830cd1d04da4d8c3a7bd49806bd7
   m_configObjects: {}
