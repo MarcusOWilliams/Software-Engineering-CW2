@@ -22,11 +22,11 @@ public class CoinShop : MonoBehaviour
         }
         else
         {
-            if (menu_UI_Controller.saved_coin_count >= 1)
+            if (menu_UI_Controller.saved_coin_count >= 10)
             {
                 score.scoreBonus = true;
                 StartCoroutine(popupText("Item Purchased!"));
-                menu_UI_Controller.saved_coin_count -= 1;
+                menu_UI_Controller.saved_coin_count -= 10;
                 currentCoins.text = $"Total Coins: {menu_UI_Controller.saved_coin_count.ToString()}";
             }
             else
@@ -45,11 +45,11 @@ public class CoinShop : MonoBehaviour
         }
         else
         {
-            if (menu_UI_Controller.saved_coin_count >= 3)
+            if (menu_UI_Controller.saved_coin_count >= 30)
             {
                 score.scoreMulti = true;
                 StartCoroutine(popupText("Item Purchased!"));
-                menu_UI_Controller.saved_coin_count -= 3;
+                menu_UI_Controller.saved_coin_count -= 30;
                 currentCoins.text = $"Total Coins: {menu_UI_Controller.saved_coin_count.ToString()}";
             }
             else
