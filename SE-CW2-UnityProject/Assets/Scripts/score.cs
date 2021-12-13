@@ -51,7 +51,7 @@ public class score : MonoBehaviour
 
 
         //add the bonus from any coins collected
-        total_Score = score_Value + (number_Of_Coins * 50) + bonus;
+        total_Score = score_Value + (number_Of_Coins * 30) + bonus;
 
 
         //double score if the player has the score multiplier
