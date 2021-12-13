@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CoinShop : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public bool scoreBonus;
+    [SerializeField] Text PopupText;
+    public void BuyScoreBonus()
     {
-        
+        if (scoreBonus)
+        {
+            StartCoroutine(popupText("You Already Have This Item Active!"));
+        }
+        else
+        {
+            scoreBonus = true;
+            StartCoroutine(popupText("Item Purchased!"));
+        }
     }
-
-    // Update is called once per frame
-    void Update()
+    IEnumerator popupText(string s)
     {
-        
+
+        PopupText.text = s;
+        yield return new WaitForSeconds(1.5f);
+        PopupText.text = "";
+
     }
 }
