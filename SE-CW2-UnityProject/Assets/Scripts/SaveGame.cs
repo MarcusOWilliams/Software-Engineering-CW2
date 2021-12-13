@@ -6,7 +6,7 @@ public class SaveGame : MonoBehaviour
 {
 
     //saves a given coin count and high score from the menu_UI_Controller
-    public void SaveGameData(int coinCount, int highScoreCount)
+    public static void SaveGameData(int coinCount, int highScoreCount)
     {
         try
         {
@@ -24,7 +24,7 @@ public class SaveGame : MonoBehaviour
     }
 
     //loads the coin count to the menu
-    public int LoadCoinData()
+    public static int LoadCoinData()
     {
         try { 
             int savedCoinCount = PlayerPrefs.GetInt("SavedCoinCount");
@@ -39,7 +39,7 @@ public class SaveGame : MonoBehaviour
     }
 
     //loads the high score to the menu
-    public int LoadHighScoreData()
+    public static int LoadHighScoreData()
     {
         try 
         {

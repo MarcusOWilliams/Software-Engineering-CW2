@@ -6,22 +6,21 @@ using UnityEngine.UI;
 
 public class menu_UI_Controller : MonoBehaviour
 {
-    public static int saved_coin_count = 0;
+    public static int saved_coin_count = -1;
     public static int highscore;
 
     [SerializeField] Text coinText;
     [SerializeField] Text HS_text;
 
-    SaveGame sg = new SaveGame();
     private void Start()
     {
-        if (highscore < sg.LoadHighScoreData())
+        if (highscore < SaveGame.LoadHighScoreData())
         {
-            highscore = sg.LoadHighScoreData();
+            highscore = SaveGame.LoadHighScoreData();
         }
-        if (saved_coin_count < sg.LoadCoinData())
+        if (saved_coin_count<0)
         {
-            saved_coin_count = sg.LoadCoinData();
+            saved_coin_count = SaveGame.LoadCoinData();
         }
         coinText.text = $"Coins: {saved_coin_count.ToString()}";
         HS_text.text = $"Highscore: {highscore.ToString()}";
@@ -39,8 +38,8 @@ public class menu_UI_Controller : MonoBehaviour
 
     public void OnExitButtonClicked()
     {
-        
-        sg.SaveGameData(saved_coin_count, highscore);
+
+        SaveGame.SaveGameData(saved_coin_count, highscore);
         Application.Quit();
     }
 
