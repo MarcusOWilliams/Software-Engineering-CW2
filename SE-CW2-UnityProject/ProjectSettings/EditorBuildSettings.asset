@@ -11,4 +11,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/BackStory.unity
+    guid: 08b2fbeacacb38f4489fd2d6cb807cd4
+  - enabled: 1
+    path: Assets/Scenes/CoinShop.unity
+    guid: 5e17955283128bb4ab453aff3605ea0f
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: b037830cd1d04da4d8c3a7bd49806bd7
   m_configObjects: {}
