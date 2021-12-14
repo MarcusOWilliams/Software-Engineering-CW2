@@ -12,21 +12,36 @@ public class CoinShop : MonoBehaviour
 
     private void Start()
     {
+        //Update the coin count text
         currentCoins.text = $"TotalCoins: {menu_UI_Controller.saved_coin_count.ToString()}";
     }
+
+    //called when the player clicks on the corresponding shop item
     public void BuyScoreBonus()
     {
+
+        //if they already own the item they cannot buy it again until it is used
         if (score.scoreBonus)
         {
             StartCoroutine(popupText("You Already Have This Item Active!"));
         }
+
         else
         {
+            //check if they have enough coins
             if (menu_UI_Controller.saved_coin_count >= 10)
             {
+
+                //update the Boolean in the score class
                 score.scoreBonus = true;
+
+
                 StartCoroutine(popupText("Item Purchased!"));
+
+                //remove coins from the balance
                 menu_UI_Controller.saved_coin_count -= 10;
+
+                //Update the coin count text
                 currentCoins.text = $"Total Coins: {menu_UI_Controller.saved_coin_count.ToString()}";
             }
             else
@@ -37,19 +52,30 @@ public class CoinShop : MonoBehaviour
         }
     }
 
+    //called when the player clicks on the corresponding shop item
     public void BuyScoreMultiplier()
     {
+        //if they already own the item they cannot buy it again until it is used
         if (score.scoreMulti)
         {
             StartCoroutine(popupText("You Already Have This Item Active!"));
         }
+
         else
         {
+            //check if they have enough coins
             if (menu_UI_Controller.saved_coin_count >= 30)
             {
+                //update the Boolean in the score class
                 score.scoreMulti = true;
+
+               
                 StartCoroutine(popupText("Item Purchased!"));
+
+                //remove coins from the balance
                 menu_UI_Controller.saved_coin_count -= 30;
+
+                //Update the coin count text
                 currentCoins.text = $"Total Coins: {menu_UI_Controller.saved_coin_count.ToString()}";
             }
             else
@@ -59,6 +85,8 @@ public class CoinShop : MonoBehaviour
 
         }
     }
+
+    //show desired popup text for 1.5 seconds
     IEnumerator popupText(string s)
     {
 
