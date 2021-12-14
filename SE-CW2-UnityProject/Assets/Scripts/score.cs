@@ -22,6 +22,7 @@ public class score : MonoBehaviour
         score_Value = 0;
         number_Of_Coins = 0;
 
+        //if the score multi bonus is active update the addmulti bool then toggle score multi off
         if (scoreMulti)
         {
             addMulti = true;

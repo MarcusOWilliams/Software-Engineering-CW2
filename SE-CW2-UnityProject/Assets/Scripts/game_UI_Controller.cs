@@ -43,12 +43,14 @@ public class game_UI_Controller : MonoBehaviour
         }
     }
 
+    //return to the main menu if the home button is pressed on the game over screen
     public void OnHomeButtonClicked()
     {
         Debug.Log("home button clicked");
         SceneManager.LoadScene("MenuScene");
     }
 
+    //pause the game when the player presses the pause button
     public void OnPauseButtonClicked()
     {
         if (gameStateObject.GetComponent<game_state_controller>().game_State == "play")
@@ -60,6 +62,7 @@ public class game_UI_Controller : MonoBehaviour
 
     }
 
+    //resume the game when the resume button is pressed on the pause menu
     public void OnResumeButtonClicked()
     {
         gameStateObject.GetComponent<game_state_controller>().game_State = "play";
@@ -72,6 +75,7 @@ public class game_UI_Controller : MonoBehaviour
         
     }
 
+    //restart the game when the restart button is pressed on the pause menu
     public void OnRestartButtonClicked()
     {
         gameStateObject.GetComponent<game_state_controller>().game_State = "play";
@@ -79,7 +83,7 @@ public class game_UI_Controller : MonoBehaviour
         PauseButton.SetActive(true);
         SceneManager.LoadScene("SampleScene");
     }
-
+    //load the main menu when the exit button is pressed on the pause menu
     public void OnExitGameButtonClicked()
     {
         gameStateObject.GetComponent<game_state_controller>().game_State = "menu";
@@ -89,6 +93,9 @@ public class game_UI_Controller : MonoBehaviour
         SceneManager.LoadScene("MenuScene");
     }
 
+
+    //wait given times before restarting generation after game resumes
+    //this means coins obstacles and pipes will be generated at different times so are unlikely to all overlap
     IEnumerator waiter()
     {
 

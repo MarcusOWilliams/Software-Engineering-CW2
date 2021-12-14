@@ -11,7 +11,8 @@ public class background_Controller : MonoBehaviour
     [SerializeField] GameObject collideWithBackground;
     [SerializeField] GameObject gameStateObject;
 
-
+    //when the character collides with the background collder, create a new roling background
+    //Then destroy the onld background after 70 seconds.
     IEnumerator OnTriggerEnter(Collider other)
     {
         Debug.Log("cam triggered");
