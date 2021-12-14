@@ -33,8 +33,17 @@ public class camera_controller : MonoBehaviour
     //speeding up camera here stops faster framerates making the camera speed up faster
     private void FixedUpdate()
     {
-        //slowly increases the speed of the camera to increase game difficulty
-        camera_speed = camera_speed + .0001f;
+        // First we access the game_state via the object gameStateObject, that holds the game_state string.
+        string game_state = gameStateObject.GetComponent<game_state_controller>().game_State;
+
+
+        // If the game_state = "play" we want the camera to speed up.
+        if (game_state == "play")
+        {
+            //slowly increases the speed of the camera to increase game difficulty
+            camera_speed = camera_speed + .0001f;
+        }
+
     }
 
 
