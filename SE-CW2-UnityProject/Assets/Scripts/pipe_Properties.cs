@@ -136,7 +136,7 @@ public class pipe_Properties : MonoBehaviour
         }
 
     }
-
+    //toggle pipe highlights
     public void turnHighlightOn()
     {
         pipeHighlight.SetActive(true);
