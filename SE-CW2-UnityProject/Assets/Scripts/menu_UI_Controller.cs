@@ -16,6 +16,10 @@ public class menu_UI_Controller : MonoBehaviour
     //when the game is loaded set all the relevant text
     private void Start()
     {
+        //reset resolution to 1080p so text always fits correctly
+        Screen.SetResolution(1920, 1080, true);
+
+
         //if the saved highscore has not been loaded, then get it from the save files
         if (highscore < SaveGame.LoadHighScoreData())
         {
