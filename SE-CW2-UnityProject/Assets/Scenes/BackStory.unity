@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -821,19 +821,19 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Stranger:\n \tYoung man, wake up!\n\nYou barely open your eyes, but you
-    can't see who's talking. \n\n\nStranger:\n\tYou don't look like a person from
-    this dungeon, you must be like me, was thrown down from that cave by those horrible
-    \"people\". \n\nNow your eyes get used to the darkness and see the upturned finger
-    in front of you and the dark hole in the ceiling.\n\nStranger:\n\tDon't worry
-    we can be friends, they threw me down here too. Just call me Old Tony. \n\nYou're
-    wondering how one minute you're sitting on the couch with a gamepad and a chip
-    in your mouth, and the next minute you're lying in this dark room with a creepy
-    old man. But you immediately believe that the man in front of you means you no
-    harm. \n\n\nOld Tony: \n\tI've been in this dungeon for I don't know how many
-    years, trying to figure out a way out. I wonder how my wife is, how is she doing...
-    \n\nYou try to placate angry old Tony, and when he cools off, he introduces you
-    to the desperate game.\n\n"
+  m_Text: "Stranger:\n \t\"Young man, wake up!\"\n\nYou barely open your eyes so
+    you cannot see who's talking. \n\n\nStranger:\n\t\"You don't look like you belong
+    in this dungeon, you must be like me - I was thrown down here by those horrible
+    people in the cave.\"\n\nYour eyes adjust to the darkness and you see the disgruntled
+    looking figure in front of you and the dark hole you fell through in the ceiling.\n\nStranger:\n\t\"Don't
+    worry, I'm not as scary as I look. Call me Old Tony.\"\n\nYou sit and wonder
+    how one minute you were sat on the couch with a gamepad and a chip in your mouth,
+    and the next you're lying in a dark room with a rambling old man. But you immediately
+    believe that the man in front of you means you no harm. \n\n\nOld Tony: \n\t\"I've
+    been in this dungeon for I don't know how many years, and I'm still trying to
+    find my way out! I wonder how my wife is, how she is doing...\"\n\nYou try to
+    placate angry old Tony, and when he cools off, he introduces you to the desperate
+    game.\n\n"
 --- !u!222 &965603400
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -991,19 +991,18 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Old Tony: \n\tThis is the door where EVERY time I walk in, I play that
-    horrible game, and every time I die in the game, I teleport back. Over the years,
-    I tried thousands of times and never managed to get past it. But I believe this
-    must be the only way out! \n\nOld Tony: \n\tWhen you walk through the door, the
-    walls turn round, as if you had gone into a tube. When you look back, the door
-    closes and you see a wall, and the wall is moving towards you! So the only way
-    to keep you alive is to run! But what's even more terrible is that after running
-    for a while, you will find that there is no road ahead, and then there is a big
-    rock under your feet! Don't worry, you'll see pipes hanging from the walls all
-    around you. All you have to do is pull the pipes up and attach them, so you can
-    get into the new pipes before the wall crushes you. Where this road leads I don't
-    know. \n\n\n\nOld Tony hasn't found this a way out in years, and it's up to you
-    to find a way to get out. "
+  m_Text: "Old Tony: \n\t\"This is the cursed door - EVERY time I walk in I play
+    the same horrible game, and each time I die in the game, I teleport straight
+    back here. I have tried thousands of times over the years and have never managed
+    to get past it. Yet I still believe this is the only way out!\"\n\nOld Tony:
+    \n\t\"When you walk through the door, you find yourself inside a pipe system.
+    The door closes behind you and immediately the wall starts moving towards you!
+    The only way to stay alive is to run! But after running for a while, you will
+    find that there is no pipe ahead! Don't worry, you'll see pipes hanging from
+    the walls all around you. All you have to do is pick pipe pieces, attach them,
+    and keep running before the wall crushes you. But where this path leads I do
+    not know...\"\n\nOld Tony hasn't found the way out in years, and it's up to you
+    to help both of you escape before it's too late!\n"
 --- !u!222 &1111867324
 CanvasRenderer:
   m_ObjectHideFlags: 0
