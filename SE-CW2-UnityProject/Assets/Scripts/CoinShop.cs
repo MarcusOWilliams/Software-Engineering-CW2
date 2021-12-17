@@ -13,7 +13,7 @@ public class CoinShop : MonoBehaviour
     private void Start()
     {
         //Update the coin count text
-        currentCoins.text = $"TotalCoins: {menu_UI_Controller.saved_coin_count.ToString()}";
+        currentCoins.text = $"Total Coins: {menu_UI_Controller.saved_coin_count.ToString()}";
     }
 
     //called when the player clicks on the corresponding shop item
